@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:22:33 by juan              #+#    #+#             */
-/*   Updated: 2021/02/22 14:31:31 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 13:17:07 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,52 +21,54 @@ Contact::~Contact( void )
 {
 }
 
-void		Contact::add()
+void		Contact::add(int count)
 {
+	std::cout << std::endl;
 	std::cout << "You have to put some information about your contact. Please write the good information and push enter." << std::endl;
 
-	std::cout << "Fist name : ";
-	std::cin >> this->first_name;
+	std::cout << std::endl;
+	std::cout << "First name : ";
+	std::getline(std::cin, this->first_name);
 	std::cout << "Last name : ";
-	std::cin >> this->last_name;
+	std::getline(std::cin, this->last_name);
 	std::cout << "Nickname : ";
-	std::cin >> this->nickname;
+	std::getline(std::cin, this->nickname);
 	std::cout << "Login : ";
-	std::cin >> this->login;
+	std::getline(std::cin, this->login);
 	std::cout << "Postal address : ";
-	std::cin >> this->adress;
+	std::getline(std::cin, this->adress);
 	std::cout << "Email address : ";
-	std::cin >> this->email;
+	std::getline(std::cin, this->email);
 	std::cout << "Phone number : ";
-	std::cin >> this->phone;
+	std::getline(std::cin, this->phone);
 	std::cout << "Birthday date : ";
-	std::cin >> this->birthday;
+	std::getline(std::cin, this->birthday);
 	std::cout << "Favorite meal : ";
-	std::cin >> this->meal;
+	std::getline(std::cin, this->meal);
 	std::cout << "Underwear color : ";
-	std::cin >> this->underwear;
+	std::getline(std::cin, this->underwear);
 	std::cout << "Darkest secret : ";
-	std::cin >> this->secret;
+	std::getline(std::cin, this->secret);
+	this->index = count + 1;
 
-	std::cout << "Thanks, the contact : " << this->nickname << "is well recorded" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Thanks, the contact : \"" << this->nickname << "\" is well recorded at the index " << this->index << std::endl;
+	std::cout << std::endl;
 }
 
-void		Contact::print_search(int count, Contact *contact)
+void		Contact::print_search(std::string str)
 {
-	int i = 0;
-	int j = 0;
-	char aff_first_name[12];
-	aff_first_name[11] = '\0';
-	while (contact[i].first_name[j])
+	char buffer[11];
+
+	for (int i = 0; i < 10; i++)
+		buffer[i] = ' ';
+	buffer[10] = '\0';
+	if (str.length() > 10)
 	{
-		aff_first_name[j] = contact[i].first_name[j];
-		j++;
+		str.copy(buffer, 9, 0);
+		buffer[9] = '.';
 	}
-	while (aff_first_name[j])
-	{
-		aff_first_name[j] = ' ';
-		j++;
-	}
-	std::cout << aff_first_name << "|" << std::endl;
-	i++;
+	else
+		str.copy(buffer, str.length(), 0);
+	std::cout << buffer << "|";
 }
