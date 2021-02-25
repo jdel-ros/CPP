@@ -6,28 +6,13 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:02:58 by juan              #+#    #+#             */
-/*   Updated: 2021/02/24 16:24:38 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 14:34:24 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstring>
 #include "Contact.hpp"
-
-void	com_search(Contact contact[8], int count)
-{
-	int i = 0;
-	while (i < count)
-	{
-		std::cout << std::endl;
-		std::cout << "index : " << contact[i].index << " |";
-		contact[i].print_search(contact[i].first_name);
-		contact[i].print_search(contact[i].last_name);
-		contact[i].print_search(contact[i].nickname);
-		i++;
-	}
-	std::cout << std::endl;
-}
 
 int		choose_index(Contact contact[8], int count)
 {
@@ -53,23 +38,6 @@ int		choose_index(Contact contact[8], int count)
 		}
 	}
 	return (index);
-}
-
-void	print_index(int index, Contact contact[8])
-{
-	std::cout << std::endl;
-	std::cout << "First name : " << contact[index].first_name << std::endl;
-	std::cout << "Last name : " << contact[index].last_name << std::endl;
-	std::cout << "Nickname : " << contact[index].nickname << std::endl;
-	std::cout << "Login : " << contact[index].login << std::endl;
-	std::cout << "Postal address : " << contact[index].adress << std::endl;
-	std::cout << "Email address : " << contact[index].email << std::endl;
-	std::cout << "Phone number : " << contact[index].phone << std::endl;
-	std::cout << "Birthday date : " << contact[index].birthday << std::endl;
-	std::cout << "Favorite meal : " << contact[index].meal << std::endl;
-	std::cout << "Underwear color : " << contact[index].underwear << std::endl;
-	std::cout << "Darkest secret : " << contact[index].secret << std::endl;
-	std::cout << std::endl;
 }
 
 int			main(void)
@@ -106,9 +74,9 @@ int			main(void)
 				std::cout << "You have to add a contact before search" << std::endl;
 			else
 			{
-				com_search(contact, count);
+				contact->com_search(contact, count);
 				index = choose_index(contact, count) - 1;
-				print_index(index, contact);
+				contact->print_index(index, contact);
 			}
 		}
 		else
