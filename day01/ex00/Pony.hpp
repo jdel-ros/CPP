@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 15:45:59 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/02/25 15:35:02 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 15:44:06 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ public :
 	void	put_speed(std::string speed);
 	void	put_height(std::string height);
 	void	print_info(std::string info);
+	void	pony_eat(std::string meal);
 
-	void	ponyOnTheStack
 private :
 
 	std::string _height;

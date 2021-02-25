@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 15:44:28 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/02/25 15:34:33 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 15:44:05 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,15 @@ void	Pony::print_info(std::string info)
 		std::cout << "The age of your pony is : " << Pony::getAge() << std::endl;
 	else
 		std::cout << "Wrong info" << std::endl;
+}
+
+void	Pony::pony_eat(std::string meal)
+{
+	if (meal.compare("pasta") == 0)
+		put_weight("95kg");
+	else if (meal.compare("vegetables") == 0)
+		put_weight("91kg");
+	else if (meal[0] == '\0')
+		put_weight("88kg");
+	std::cout << "The weight of your pony is : " << Pony::getWeight() << std::endl;
 }
