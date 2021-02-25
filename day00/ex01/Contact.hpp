@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:21:06 by juan              #+#    #+#             */
-/*   Updated: 2021/02/25 14:25:43 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 15:12:56 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
+#include <regex>
+
+# define REG_ALPHA "[a-zA-Z- ]+"
+# define REG_LETTER "[a-zA-Z,.!?-;:' ]+"
+# define REG_ALNUM "[a-zA-Z0-9- ]+"
+# define REG_ALNUMAT "[a-zA-Z0-9- @.]+"
+# define REG_NUM "[0-9 ]+"
+# define REG_NUMSL "[0-9/.]+"
 
 class Contact 
 {
