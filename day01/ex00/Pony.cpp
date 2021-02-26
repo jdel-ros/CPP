@@ -3,102 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   Pony.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 15:44:28 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/02/25 15:44:05 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/02/26 12:10:25 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Pony.hpp"
 
-Pony::Pony( void )
+Pony::Pony( std::string name, std::string age, std::string speed, int weight ) : _name(name), _weight(weight), _age(age), _speed(speed)
 {
+	std::cout << "Poney " << this->_name << " is born" << std::endl;
 }
 
 Pony::~Pony( void )
 {
+	std::cout << "Poney " << this->_name << " died" << std::endl;
 }
 
-int	Pony::setHeight( std::string str)
+void	Pony::setName( std::string str)
 {
-	if (std::regex_match(str, std::regex(REG_INCH)) == 0)
-	{
-		std::cout << "The height of the Pony have to be in inch" << std::endl;
-		return (0);
-	}
-	else
-		this->_height = str;
-	return (1);
+	this->_name = str;
 }
 
-int	Pony::setWeight( std::string str)
+void	Pony::setWeight( int i )
 {
-	if (std::regex_match(str, std::regex(REG_GRAM)) == 0)
-	{
-		std::cout << "The weight of the Pony have to be in g/kg" << std::endl;
-		return (0);
-	}
-	else
-		this->_weight = str;
-	return (1);
+	this->_weight = this->_weight + i;
 }
 
-int	Pony::setAge( std::string str)
+void Pony::setAge( std::string str)
 {
-	if (std::regex_match(str, std::regex(REG_AGE)) == 0)
-	{
-		std::cout << "The weight of the Pony have to be a number" << std::endl;
-		return (0);
-	}
-	else
-		this->_age = str;
-	return (1);
+	this->_age = str;
 }
 
-int	Pony::setSpeed( std::string str)
+void Pony::setSpeed( std::string str)
 {
-	if (std::regex_match(str, std::regex(REG_KMH)) == 0)
-	{
-		std::cout << "The weight of the Pony have to be in km/h" << std::endl;
-		return (0);
-	}
-	else
-		this->_speed = str;
-	return (1);
-}
-
-void	Pony::put_age(std::string age)
-{
-	setAge(age);
-}
-
-
-void	Pony::put_height(std::string height)
-{
-	setHeight(height);
-}
-
-void	Pony::put_weight(std::string weight)
-{
-	setWeight(weight);
-}
-
-void	Pony::put_speed(std::string speed)
-{
-	setSpeed(speed);
+	this->_speed = str;
 }
 
 void	Pony::print_info(std::string info)
 {
-	if (info.compare("height") == 0)
-		std::cout << "The height of your pony is : " << Pony::getHeight() << std::endl;
+	if (info.compare("name") == 0)
+		std::cout << "The name of your pony is : " << Pony::getName() << std::endl;
 	else if (info.compare("weight") == 0)
-		std::cout << "The weight of your pony is : " << Pony::getWeight() << std::endl;
+		std::cout << "The weight of " << Pony::getName() << " is : " << Pony::getWeight() << "kg" << std::endl;
 	else if (info.compare("speed") == 0)
-		std::cout << "The speed of your pony is : " << Pony::getSpeed() << std::endl;
+		std::cout << "The speed of " << Pony::getName() << " is : " << Pony::getSpeed() << std::endl;
 	else if (info.compare("age") == 0)
-		std::cout << "The age of your pony is : " << Pony::getAge() << std::endl;
+		std::cout << "The age of " << Pony::getName() << " is : " << Pony::getAge() << std::endl;
 	else
 		std::cout << "Wrong info" << std::endl;
 }
@@ -106,10 +59,10 @@ void	Pony::print_info(std::string info)
 void	Pony::pony_eat(std::string meal)
 {
 	if (meal.compare("pasta") == 0)
-		put_weight("95kg");
+		setWeight(5);
 	else if (meal.compare("vegetables") == 0)
-		put_weight("91kg");
+		setWeight(2);
 	else if (meal[0] == '\0')
-		put_weight("88kg");
-	std::cout << "The weight of your pony is : " << Pony::getWeight() << std::endl;
+		setWeight(-2);
+	std::cout << "The weight of " << Pony::getName() << " is : " << Pony::getWeight() << "kg" << std::endl;
 }
