@@ -6,12 +6,11 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:22:33 by juan              #+#    #+#             */
-/*   Updated: 2021/02/25 15:12:53 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:55:12 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-
 
 Contact::Contact( void )
 {
@@ -23,133 +22,210 @@ Contact::~Contact( void )
 
 int Contact::setFirstName( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_ALPHA)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alpha, space and hyphen" << std::endl;
-		return (1);
+		if (isalpha(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '\'' && str[i] != '-')
+			{
+				std::cout << "You can put only char alpha, space and hyphen" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_first_name = str;
+	this->_first_name = str;
 	return (0);
 }
 
 int Contact::setLastName( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_ALPHA)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alpha, space and hyphen" << std::endl;
-		return (1);
+		if (isalpha(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '\'' && str[i] != '-')
+			{
+				std::cout << "You can put only char alpha, space and hyphen" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_last_name = str;
+	this->_last_name = str;
 	return (0);
 }
 
 int Contact::setNickname( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_ALNUM)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alphanumeric, space and hyphen" << std::endl;
-		return (1);
+		if (isalnum(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '-')
+			{
+				std::cout << "You can put only char alphanumeric, space and hyphen" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_nickname = str;
+	this->_nickname = str;
 	return (0);
 }
 
 int Contact::setLogin( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_ALPHA)) == 0)
+		int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alpha, space and hyphen" << std::endl;
-		return (1);
+		if (isalpha(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '\'' && str[i] != '-')
+			{
+				std::cout << "You can put only char alpha, space and hyphen" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_login = str;
+	this->_login = str;
 	return (0);
 }
 
 int Contact::setAdress( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_ALNUM)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alphanumeric, space and hyphen" << std::endl;
-		return (1);
+		if (isalnum(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '-')
+			{
+				std::cout << "You can put only char alphanumeric, space and hyphen" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_adress = str;
+	this->_adress = str;
 	return (0);
 }
 
 int	Contact::setEmail( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_ALNUMAT)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alphanumeric, space, hyphen, at and point" << std::endl;
-		return (1);
+		if (isalnum(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '-' && str[i] != '.' && str[i] != '@')
+			{
+				std::cout << "You can put only char alphanumeric, space, hyphen, at and point" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_email = str;
+	this->_email = str;
 	return (0);
 }
 
 int	Contact::setPhone( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_NUM)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout <<"You can put only char numeric" << std::endl; 
-		return (1);
+		if (isdigit(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '-' && str[i] != '.')
+			{
+				std::cout << "You can put only char numeric, space, hyphen and point" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_phone = str;
+	this->_phone = str;
 	return (0);
 }
 
 int	Contact::setBirthday( std::string str )
 {
-	if (std::regex_match(str, std::regex(REG_NUMSL)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alphanumeric, slash and point" << std::endl;
-		return (1);
+		if (isdigit(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '/' && str[i] != '.')
+			{
+				std::cout << "You can put only char alphanumeric, slash and point" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_birthday = str;
+	this->_birthday = str;
 	return (0);
 }
 
 int	Contact::setMeal( std::string str)
 {
-	if (std::regex_match(str, std::regex(REG_LETTER)) == 0)
+	int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alpha and punctuation" << std::endl;
-		return (1);
+		if (isalpha(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '.' && str[i] != '!' && str[i] != '?' && str[i] != '-' && str[i] != ';' && str[i] != ':' && str[i] != '\'' && str[i] != ',')
+			{
+				std::cout << "You can put only char alpha and punctuation" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_meal = str;
+	this->_meal = str;
 	return (0);
 }
 
 int	Contact::setUnderwear( std::string str)
 {
-	if (std::regex_match(str, std::regex(REG_LETTER)) == 0)
+		int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alpha and punctuation" << std::endl;
-		return (1);
+		if (isalpha(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '.' && str[i] != '!' && str[i] != '?' && str[i] != '-' && str[i] != ';' && str[i] != ':' && str[i] != '\'' && str[i] != ',')
+			{
+				std::cout << "You can put only char alpha and punctuation" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_underwear = str;
+	this->_underwear = str;
 	return (0);
 }
 
 int	Contact::setSecret( std::string str)
 {
-	if (std::regex_match(str, std::regex(REG_LETTER)) == 0)
+		int i = 0;
+	while (str[i])
 	{
-		std::cout << "You can put only char alpha and punctuation" << std::endl;
-		return (1);
+		if (isalpha(str[i]) == 0)
+		{
+			if (str[i] != ' ' && str[i] != '.' && str[i] != '!' && str[i] != '?' && str[i] != '-' && str[i] != ';' && str[i] != ':' && str[i] != '\'' && str[i] != ',')
+			{
+				std::cout << "You can put only char alpha and punctuation" << std::endl;
+				return (1);
+			}
+		}
+		i++;
 	}
-	else
-		this->_secret = str;
+	this->_secret = str;
 	return (0);
 }
 

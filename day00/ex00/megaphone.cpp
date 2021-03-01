@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 18:08:51 by juan              #+#    #+#             */
-/*   Updated: 2021/02/24 16:24:46 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:34:04 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		main(int argc, char **argv)
 		{
 			std::cout << (char)toupper(argv[i][j]);
 		}
-		std::cout << std::endl;
 	}
 	return (0);
 }

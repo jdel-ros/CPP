@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:21:06 by juan              #+#    #+#             */
-/*   Updated: 2021/02/26 10:45:17 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:55:00 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
-#include <regex>
-
-# define REG_ALPHA "[a-zA-Z-' ]+"
-# define REG_LETTER "[a-zA-Z,.!?-;:' ]+"
-# define REG_ALNUM "[a-zA-Z0-9-' ]+"
-# define REG_ALNUMAT "[a-zA-Z0-9- @'.]+"
-# define REG_NUM "[0-9 ]+"
-# define REG_NUMSL "[0-9/.]+"
 
 class Contact 
 {
