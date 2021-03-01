@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 11:07:24 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:20:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/01 13:03:46 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/01 14:39:36 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-Human::Human( void )
-{
-}
+#include "Weapon.hpp"
 
-Human::~Human( void )
+class HumanB
 {
-}
+public:
 
-std::string Human::identify ( void ) const
-{
-	return (this->_brain.identify());
-}
+	HumanB( std::string name );
+	~HumanB( void );
+
+	const std::string &getName( void ) const { return this->_name; };
+	Weapon *getWeapon( void ) const { return this->_weapon; };
+	void	setWeapon( Weapon &weapon ) { this->_weapon = &weapon; };
+	void	attack( void );
+
+private:
+
+	const std::string _name;
+	Weapon *_weapon;
+};
+
+#endif

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 11:07:24 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:20:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/01 13:03:04 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/01 14:38:43 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#include "HumanA.hpp"
 
-Human::Human( void )
+HumanA::HumanA( std::string name, Weapon &weapon ) : _name(name), _weapon(weapon)
 {
 }
 
-Human::~Human( void )
-{
+HumanA::~HumanA( void )
+{	
 }
 
-std::string Human::identify ( void ) const
+void		HumanA::attack( void )
 {
-	return (this->_brain.identify());
+	std::cout << HumanA::getName() << " attacks with his " << this->_weapon.getType() << std::endl;
 }

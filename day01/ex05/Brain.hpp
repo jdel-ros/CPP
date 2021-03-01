@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 11:55:21 by juan              #+#    #+#             */
-/*   Updated: 2021/02/27 12:09:07 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 11:09:33 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,31 @@
 
 #include <iostream>
 #include <string.h>
+#include <sstream>
 
 class Brain
 {
 
 public:
 
-	Brain( int age, int nbNeur, std::string name );
+	Brain( void );
 	~Brain( void );
-	std::string identifier( void ) const ;
+
+	int	getAge( void ) const { return this->_age; };
+	std::string	getNbneur( void ) const { return this->_Nbneur; };
+	std::string	getName( void ) const { return this->_name; };
+
+	void		setAge( int age );
+	void		setNbneur( std::string nbNeur );
+	void		setName( std::string str );
+
+	std::string identify( void ) const ;
+	void	initvar( void );
 
 private:
 
 	int _age;
-	int _nbNeur;
+	std::string _Nbneur;
 	std::string _name;
 
 };

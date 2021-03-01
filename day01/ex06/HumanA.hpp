@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 11:07:24 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:20:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/01 13:03:46 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/01 13:45:27 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-Human::Human( void )
-{
-}
+#include "Weapon.hpp"
 
-Human::~Human( void )
+class HumanA
 {
-}
+public:
 
-std::string Human::identify ( void ) const
-{
-	return (this->_brain.identify());
-}
+	HumanA( std::string name, Weapon &Weapon );
+	~HumanA( void );
+
+	const std::string &getName( void ) const { return this->_name; };
+	void	setName( std::string str);
+	void	attack( void );
+
+private:
+
+	const std::string _name;
+	Weapon &_weapon;
+};
+
+#endif

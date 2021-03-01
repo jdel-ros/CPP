@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 11:07:24 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:20:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/01 12:52:39 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/01 13:56:46 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#include "Weapon.hpp"
 
-Human::Human( void )
+Weapon::Weapon( std::string type ) : _type(type)
 {
 }
 
-Human::~Human( void )
+Weapon::Weapon( void )
 {
-}
-
-std::string Human::identify ( void ) const
-{
-	return (this->_brain.identify());
 }

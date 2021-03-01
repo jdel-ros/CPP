@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 11:07:24 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:20:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/01 13:03:04 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/01 14:36:14 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#include "HumanB.hpp"
 
-Human::Human( void )
+HumanB::HumanB( std::string name) : _name(name)
 {
 }
 
-Human::~Human( void )
-{
+HumanB::~HumanB( void )
+{	
 }
 
-std::string Human::identify ( void ) const
+void		HumanB::attack( void )
 {
-	return (this->_brain.identify());
+	std::cout << HumanB::getName() << " attacks with his " << this->_weapon->getType() << std::endl;
 }

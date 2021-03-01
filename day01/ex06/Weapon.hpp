@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.cpp                                          :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 11:07:24 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:20:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/01 12:52:38 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/01 14:38:06 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-Human::Human( void )
-{
-}
+#include <iostream>
 
-Human::~Human( void )
+class Weapon
 {
-}
 
-std::string Human::identify ( void ) const
-{
-	return (this->_brain.identify());
-}
+public:
+
+	Weapon( std::string type );
+	Weapon( void );
+
+	const std::string getType( void ) const { return this->_type; };
+	void		setType( const std::string str ) { this->_type = str; };
+
+private:
+
+	std::string _type;
+};
+
+#endif
