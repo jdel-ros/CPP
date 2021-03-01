@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/01 14:40:13 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/03/01 14:44:24 by jdel-ros         ###   ########lyon.fr    #
+#    Updated: 2021/03/01 17:59:42 by juan             ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	=	sed_loser
-SRC 	=	
+SRC 	=	main.cpp
 RM 		=	rm -fclean
 C 		=	clang++
 FLAGS 	=	-Wall -Wextra -Werror -std=c++98
