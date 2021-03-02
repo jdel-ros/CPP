@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:26:37 by juan              #+#    #+#             */
-/*   Updated: 2021/02/27 11:36:55 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/02 12:21:15 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ private :
 
 	std::string _name;
 	std::string _type;
-
 };
 
 #endif

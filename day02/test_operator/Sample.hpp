@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sample.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 12:47:55 by juan              #+#    #+#             */
-/*   Updated: 2021/03/02 12:16:05 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/02 11:06:07 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieHorde.hpp"
+#ifndef SAMPLE_HPP
+# define SAMPLE_HPP
 
-int			main(void)
+#include <iostream>
+
+class Sample
 {
-	ZombieHorde click = ZombieHorde(-1);
+public:
 
-	click.annonce();
-}
+	Sample( void );
+	Sample ( int const n );
+	Sample( Sample const & src );
+	~Sample( void );
+
+	Sample & operator=( Sample const & rhs );
+	Sample 	operator+( Sample const & rhs ) const ;
+
+	int getN( void ) const { return this->_n; };
+
+private:
+
+	int _n;
+};
+
+std::ostream &		operator<<( std::ostream & o, Sample const & i );
+
+#endif
