@@ -1,0 +1,109 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/04 09:57:34 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/04 14:10:14 by jdel-ros         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "FragTrap.hpp"
+
+FragTrap::FragTrap( void ): _name("Default"), _hitPoints(100), _maxHitPoints(100), _energyPoints(100), _maxEnergyPoints(100), _level(1), _meleeAttackDamage(30), _rangedAttackDamage(20), _armorDamageReduction(5)
+{
+	std::cout << "The Saiyan " << this->_name << " arrived on Namek !" << std::endl;
+}
+
+FragTrap::FragTrap( std::string name ): _name(name), _hitPoints(100), _maxHitPoints(100), _energyPoints(100), _maxEnergyPoints(100), _level(1), _meleeAttackDamage(30), _rangedAttackDamage(20), _armorDamageReduction(5)
+{
+	(void)_energyPoints;
+	(void)_maxEnergyPoints;
+	(void)_level;
+	(void)_meleeAttackDamage;
+	(void)_rangedAttackDamage;
+	std::cout << "The Saiyan " << this->_name << " arrived on Namek !" << std::endl;
+}
+
+FragTrap::FragTrap(  FragTrap const & src )
+{
+	std::cout << "The copy of Saiyan " << this->_name << " arrived too on Namek !" << std::endl;
+	*this = src;
+}
+
+FragTrap::~FragTrap ( void )
+{
+	std::cout << "The Saiyan " << this->_name << " was killed, bring together the 7 cristal ball for resurrect him !" << std::endl;
+}
+
+FragTrap &	FragTrap::operator=( FragTrap const & rhs)
+{
+	std::cout << "Assignement = have been called" << std::endl;
+	this->_name = rhs._name;
+	return *this;
+}
+
+void	FragTrap::takeDamage( unsigned int amount )
+{
+	this->_hitPoints -= amount - _armorDamageReduction;
+	if (this->_hitPoints < 0)
+		this->_hitPoints = 0;
+	if (this->_hitPoints > 0)
+		std::cout << "Freezer block 5 HP with his armor" << std::endl;
+	std::cout << "Freezer have " << _hitPoints << " HP !" << std::endl;
+}
+
+void	FragTrap::beRepaired( unsigned int amount )
+{
+	this->_hitPoints += amount;
+	if (this->_hitPoints > _maxHitPoints)
+		this->_hitPoints = _maxHitPoints;
+	std::cout << "Freezer have " << _hitPoints << " HP !" << std::endl;
+}
+
+void	FragTrap::rangedAttack( std::string const & target )
+{
+	std::cout << this->_name << " attacks " << target << " at range, causing 20 points of damage !" << std::endl;
+	takeDamage(20);
+}
+
+void	FragTrap::meleeAttack( std::string const & target )
+{
+	std::cout << this->_name << " attacks " << target << " at melee, causing 30 points of damage !" << std::endl;
+	takeDamage(30);
+}
+
+std::string FragTrap::_names_attack[5] =
+{
+	"Kamehameha",
+	"Genkidama",
+	"Kaïoken",
+	"Nuage supersonique",
+	"Singe Géant",
+};
+
+void	FragTrap::vaulthunter_dot_exe( std::string const & target )
+{
+	srand(time(NULL));
+	std::string attack = FragTrap::_names_attack[std::rand() % 5];
+
+	_energyPoints -= 25;	
+	if (_energyPoints > 0)
+	{
+		std::cout << this->_name << " attacks " << target << " with "<< attack << ", causing 35 points of damage !" << std::endl;
+		std::cout << "Goku have " << _energyPoints << " mana" << std::endl;
+		if (attack.compare("Genkidama") == 0)
+		{
+			std::cout << "The power of the planet is gather in " << this->_name << " !!! " << std::endl;
+			takeDamage(105);
+		}
+		else
+			takeDamage(20);
+	}
+	else
+	{
+		std::cout << "Goku want attack with " << attack << " but he have no more mana, go to eat and come back !" << std::endl; 
+	}
+}
