@@ -17,6 +17,9 @@
 
 class ScavTrap
 {
+
+public:
+
 	ScavTrap( void );
 	ScavTrap( std::string name );
 	ScavTrap( ScavTrap const & src );
@@ -29,11 +32,6 @@ class ScavTrap
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
 	void		challengeNewcomer( std::string const & target );
-	void		challenge0( void );
-	void		challenge1( void );
-	void		challenge2( void );
-	void		challenge3( void );
-	void		challenge4( void );
 
 private:
 

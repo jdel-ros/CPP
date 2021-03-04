@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 14:57:01 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/04 15:31:35 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 17:46:35 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ ScavTrap::ScavTrap( void ): _name("Default"), _hitPoints(100), _maxHitPoints(100
 
 ScavTrap::ScavTrap( std::string name ): _name(name), _hitPoints(100), _maxHitPoints(100), _energyPoints(100), _maxEnergyPoints(100), _level(1), _meleeAttackDamage(20), _rangedAttackDamage(15), _armorDamageReduction(3)
 {
+	(void)_energyPoints;
+	(void)_maxEnergyPoints;
+	(void)_level;
+	(void)_meleeAttackDamage;
+	(void)_rangedAttackDamage;
 	std::cout << "The Master " << this->_name << " is ready to challenge you !" << std::endl;
 }
 
@@ -72,31 +77,16 @@ void	ScavTrap::meleeAttack( std::string const & target )
 
 std::string ScavTrap::_names_challenge[5] =
 {
-	// "Je ne fais pas de bruit quand je me réveille mais je réveille tout le monde. Qui suis-je ?"
-	"I don’t make a sound when I wake up, but I wake everyone up. Who the hell am I?",
-	// "Trois poissons sont dans un seau, l’un d’entre meurt, combien en reste t-il?"
-	"Three fish are in a bucket, one dies, how many are left?",
-	// "Qu’est ce qui est plus grand que la Tour Eiffel, mais infiniment moins lourd."
-	"What is bigger than the Eiffel Tower, but infinitely less heavy.",
-	// "Lors d'une course de vélo, un cycliste double le deuxième ? Il devient..."
-	"During a bike race, a cyclist doubles the second? He becomes...",
-	// "Combien de jours y a-t-il dans 4 ans?"
-	"How many days ago in four years?",
+	"reopens the restaurants, i'm starving !",
+	"take off your mask I don’t recognize you !",
+	"do my Ft_Services and maybe you’ll pass !",
+	"answer to this question : Death or Chéché ?",
+	"Bring me a mojito, i'm thirsty !",
 };
 
 void	ScavTrap::challengeNewcomer( std::string const & target )
 {
 	srand(time(NULL));
-	int rand = std::rand() % 5;
-	std::string attack = ScavTrap::_names_challenge[rand];
-	if (rand == 0)
-		challenge0();
-	else if (rand == 1)
-		challenge1();
-	if (rand == 2)
-		challenge2();
-	if (rand == 3)
-		challenge3();
-	if (rand == 4)
-		challenge4();
+	std::string attack = ScavTrap::_names_challenge[std::rand() % 5];
+	std::cout << "Hello new comer " << target << " ! If you want to pass " << attack << std::endl;
 }
