@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 09:57:32 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 08:41:13 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/05 10:21:59 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/05 13:01:32 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
 
-class FragTrap
+class ClapTrap
 {
 
 public:
 
-	FragTrap( void );
-	FragTrap( std::string name );
-	FragTrap( FragTrap const & src );
-	~FragTrap( void );
+	ClapTrap( std::string name, int hitPoints, int maxHitPoints, int energyPoints, int maxEnergyPoints, int level, int meleeAttackDamage, int rangedAttackDamage, int armorDamageReduction );
+	ClapTrap( ClapTrap const & src );
+	~ClapTrap( void );
 
-	FragTrap & operator=( FragTrap const & rhs );
+	ClapTrap & operator=( ClapTrap const & rhs );
 
+	std::string	getName( void ) { return this->_name; };
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
-	void		vaulthunter_dot_exe( std::string const & target );
 
-private:
+protected:
 
 	std::string _name;
 	int _hitPoints;
@@ -44,7 +43,6 @@ private:
 	int _meleeAttackDamage;
 	int _rangedAttackDamage;
 	int _armorDamageReduction;
-	static std::string _names_attack[5];
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:02:58 by juan              #+#    #+#             */
-/*   Updated: 2021/02/25 14:34:24 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/05 09:59:51 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cstring>
 #include "Contact.hpp"
 
-int		choose_index(Contact contact[8], int count)
+int		choose_index(int count)
 {
 	std::string buf;
 	int bl = 0;
@@ -75,7 +75,7 @@ int			main(void)
 			else
 			{
 				contact->com_search(contact, count);
-				index = choose_index(contact, count) - 1;
+				index = choose_index(count) - 1;
 				contact->print_index(index, contact);
 			}
 		}

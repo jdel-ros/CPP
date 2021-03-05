@@ -6,16 +6,17 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 09:57:32 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 08:41:13 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/05 12:53:50 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
+#include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap
+class FragTrap : public ClapTrap
 {
 
 public:
@@ -27,6 +28,7 @@ public:
 
 	FragTrap & operator=( FragTrap const & rhs );
 
+	std::string	getName( void ) { return this->_name; };
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );
@@ -35,15 +37,6 @@ public:
 
 private:
 
-	std::string _name;
-	int _hitPoints;
-	int _maxHitPoints;
-	int _energyPoints;
-	int _maxEnergyPoints;
-	int _level;
-	int _meleeAttackDamage;
-	int _rangedAttackDamage;
-	int _armorDamageReduction;
 	static std::string _names_attack[5];
 
 };

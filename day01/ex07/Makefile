@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+         #
+#    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/01 14:40:13 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/03/01 17:59:42 by juan             ###   ########lyon.fr    #
+#    Updated: 2021/03/05 10:13:50 by jdel-ros         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ 	=	${SRC:.cpp=.o}
 
 all: $(NAME)
 
-%.o:%.c
+%.o:%.cpp
 	$(C) $(FLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
