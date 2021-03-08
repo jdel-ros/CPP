@@ -6,7 +6,7 @@
 #    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/18 18:04:58 by juan              #+#    #+#              #
-#    Updated: 2021/03/05 10:00:26 by jdel-ros         ###   ########lyon.fr    #
+#    Updated: 2021/03/08 15:57:11 by jdel-ros         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ OBJ 	=	megaphone.o
 all: $(NAME)
 
 %.o:%.cpp
-	$(C) $(FLAGS) -o $@ -c $<
+	@$(C) $(FLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
-	$(C) -o $(NAME) $(OBJ)
+	@$(C) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
