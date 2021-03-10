@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:53 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 16:45:45 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 14:06:00 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@ class Enemy
 public:
 
 	Enemy(int hp, std::string const & type);
-	~Enemy( void );
+	virtual ~Enemy( void );
 
-	std::string const & getType( void ) const { return this->_type; };
+	std::string const & getType( void ) const;
 	int getHP( void ) const { return this->_hp; };
 	virtual void takeDamage( int d );
+	void setHP( int i );
 
 protected:
 
 	int _hp;
-	std::string const & _type;
+	std::string _type;
 
 private:
+
 	Enemy( void );
 	Enemy( Enemy const & src );
 	Enemy & operator=( Enemy const & rhs );

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:40:31 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 16:19:10 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 13:00:26 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ AWeapon::AWeapon( AWeapon const & src ): _name(src._name), _apcost(src._apcost),
 
 AWeapon &	AWeapon::operator=( AWeapon const & rhs )
 {
+	this->_name = rhs._name;
+	this->_apcost = rhs._apcost;
+	this->_damage = rhs._damage;
 	return *this;
 }

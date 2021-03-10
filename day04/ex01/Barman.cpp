@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   Barman.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 16:36:21 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/10 14:13:59 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/10 14:20:27 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/10 14:26:11 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#include "Barman.hpp"
 
-Enemy::Enemy( int hp, std::string const & type ): _hp(hp), _type(type)
+Barman::Barman( void ): Enemy(130, "Barman")
 {
-
+	std::cout << "Let's gooooo drink bby !" << std::endl;
 }
 
-Enemy::~Enemy( void )
+Barman::~Barman( void )
 {
-
+	std::cout << "* End of service * Everybody out !!" << std::endl;
 }
 
-void	Enemy::takeDamage( int d )
+void	Barman::takeDamage( int d )
 {
 	if (d >= 0)
 		this->_hp -= d;
 }
 
-void	Enemy::setHP( int i )
+void	Barman::setHP( int i )
 {
 	_hp -= i;
-}
-
-std::string const & Enemy::getType( void ) const
-{
-	return this->_type;
 }

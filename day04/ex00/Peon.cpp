@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:32:50 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 15:03:21 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 11:19:24 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Peon::~Peon( void )
 Peon::Peon( Peon const & src ): Victim( src )
 {
 	*this = src;
-	// std::cout << "Peon " << this->_name << " just died for no apparent reason!" << std::endl;
 }
 
 Peon &	Peon::operator=( Peon const & rhs )

@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   Barman.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 16:36:21 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/10 14:13:59 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/10 11:18:21 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/10 11:18:39 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#ifndef BARMAN_HPP
+# define BARMAN_HPP
 
-Enemy::Enemy( int hp, std::string const & type ): _hp(hp), _type(type)
+#include "Victim.hpp"
+
+class Barman : public virtual Victim
 {
 
-}
+public:
 
-Enemy::~Enemy( void )
-{
+	Barman( std::string name );
+	~Barman( void );
+	Barman( Barman const & src);
+	std::string getName( void ) const { return this->_name; };
+	Barman & operator=( Barman const & rhs );
+	virtual void getPolymorphed( void ) const;
+	
+private:
 
-}
+	Barman( void );
+};
 
-void	Enemy::takeDamage( int d )
-{
-	if (d >= 0)
-		this->_hp -= d;
-}
-
-void	Enemy::setHP( int i )
-{
-	_hp -= i;
-}
-
-std::string const & Enemy::getType( void ) const
-{
-	return this->_type;
-}
+#endif
