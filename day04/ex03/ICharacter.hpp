@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.hpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:33:56 by juan             ###   ########lyon.fr   */
+/*   Created: 2021/03/12 10:24:40 by juan              #+#    #+#             */
+/*   Updated: 2021/03/12 11:20:07 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE_HPP
-# define SAMPLE_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
 #include <iostream>
+#include "AMateria.hpp"
 
-class Sample
+class ICharacter
 {
+
 public:
 
-	Sample( void );
-	Sample( int const n );
-	Sample( Sample const & src );
-	~Sample( void );
+	virtual ~ICharacter( void ) {};
+	virtual std::string const & getName( void ) const = 0;
+	virtual void equip( AMateria* materia ) = 0;
+	virtual void unequip( int i ) = 0;
+	virtual void use( int i, ICharacter& target ) = 0;
 
-	Sample & operator=( Sample const & rhs );
-	Sample 	operator+( Sample const & rhs ) const ;
-
-	int getN( void ) const { return this->_n; };
-
-private:
-
-	int _n;
 };
-
-std::ostream &		operator<<( std::ostream & o, Sample const & i );
 
 #endif

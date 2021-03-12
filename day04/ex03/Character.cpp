@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.hpp                                         :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:33:56 by juan             ###   ########lyon.fr   */
+/*   Created: 2021/03/12 11:12:07 by juan              #+#    #+#             */
+/*   Updated: 2021/03/12 11:19:12 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE_HPP
-# define SAMPLE_HPP
+#include "Character.hpp"
 
-#include <iostream>
-
-class Sample
+Character::Character( std::string name ): _name(name)
 {
-public:
 
-	Sample( void );
-	Sample( int const n );
-	Sample( Sample const & src );
-	~Sample( void );
+}
 
-	Sample & operator=( Sample const & rhs );
-	Sample 	operator+( Sample const & rhs ) const ;
+Character::~Character( void )
+{
 
-	int getN( void ) const { return this->_n; };
+}
 
-private:
+Character::Character( Character const & src )
+{
+	*this = src;
+}
 
-	int _n;
-};
+Character & Character::operator=( Character const & rhs )
+{
+	this->_name = rhs._name;
+	return *this;
+}
 
-std::ostream &		operator<<( std::ostream & o, Sample const & i );
-
-#endif
+void	Character::equip( AMateria * materia )
+{
+	
+}

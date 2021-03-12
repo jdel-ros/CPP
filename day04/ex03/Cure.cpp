@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.hpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:33:56 by juan             ###   ########lyon.fr   */
+/*   Created: 2021/03/12 10:40:52 by juan              #+#    #+#             */
+/*   Updated: 2021/03/12 11:10:12 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE_HPP
-# define SAMPLE_HPP
+#include "Cure.hpp"
 
-#include <iostream>
-
-class Sample
+Cure::Cure( void ): AMateria("cure")
 {
-public:
 
-	Sample( void );
-	Sample( int const n );
-	Sample( Sample const & src );
-	~Sample( void );
+}
 
-	Sample & operator=( Sample const & rhs );
-	Sample 	operator+( Sample const & rhs ) const ;
+Cure::~Cure( void )
+{
 
-	int getN( void ) const { return this->_n; };
+}
 
-private:
+Cure *	Cure::clone( void ) const
+{
+	return (new Cure);
+}
 
-	int _n;
-};
-
-std::ostream &		operator<<( std::ostream & o, Sample const & i );
-
-#endif
+void	Cure::use( ICharacter & target )
+{
+	_xp += 10;
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+}

@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:33:56 by juan             ###   ########lyon.fr   */
+/*   Created: 2021/03/12 10:26:41 by juan              #+#    #+#             */
+/*   Updated: 2021/03/12 10:40:40 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE_HPP
-# define SAMPLE_HPP
+#include "AMateria.hpp"
 
-#include <iostream>
-
-class Sample
+AMateria::AMateria( std::string const & type ): _type(type), _xp(0)
 {
-public:
 
-	Sample( void );
-	Sample( int const n );
-	Sample( Sample const & src );
-	~Sample( void );
+}
 
-	Sample & operator=( Sample const & rhs );
-	Sample 	operator+( Sample const & rhs ) const ;
+AMateria::AMateria( AMateria const & src )
+{
+	*this = src;
+}
 
-	int getN( void ) const { return this->_n; };
+AMateria & AMateria::operator=( AMateria const & rhs )
+{
+	this->_type = rhs._type;
+	this->_xp = rhs._xp;
+	return *this;
+}
 
-private:
+AMateria::~AMateria( void )
+{
 
-	int _n;
-};
+}
 
-std::ostream &		operator<<( std::ostream & o, Sample const & i );
-
-#endif
+void	AMateria::use( ICharacter & target )
+{
+	_xp += 10;
+}

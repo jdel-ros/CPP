@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:33:56 by juan             ###   ########lyon.fr   */
+/*   Created: 2021/03/12 10:48:21 by juan              #+#    #+#             */
+/*   Updated: 2021/03/12 11:09:30 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE_HPP
-# define SAMPLE_HPP
+#include "Ice.hpp"
 
-#include <iostream>
-
-class Sample
+Ice::Ice( void ): AMateria("Ice")
 {
-public:
 
-	Sample( void );
-	Sample( int const n );
-	Sample( Sample const & src );
-	~Sample( void );
+}
 
-	Sample & operator=( Sample const & rhs );
-	Sample 	operator+( Sample const & rhs ) const ;
+Ice::~Ice( void )
+{
 
-	int getN( void ) const { return this->_n; };
+}
 
-private:
+Ice *	Ice::clone( void ) const
+{
+	return (new Ice);
+}
 
-	int _n;
-};
-
-std::ostream &		operator<<( std::ostream & o, Sample const & i );
-
-#endif
+void	Ice::use( ICharacter & target )
+{
+	_xp += 10;
+	std::cout << "* shoots an ice bolt at" <<  target.getName() << " *" << std::endl;
+}

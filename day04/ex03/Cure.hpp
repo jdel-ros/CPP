@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sample.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 09:18:43 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:33:56 by juan             ###   ########lyon.fr   */
+/*   Created: 2021/03/12 10:37:03 by juan              #+#    #+#             */
+/*   Updated: 2021/03/12 10:44:55 by juan             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SAMPLE_HPP
-# define SAMPLE_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-#include <iostream>
+#include "AMateria.hpp"
 
-class Sample
+class Cure: public AMateria
 {
+
 public:
 
-	Sample( void );
-	Sample( int const n );
-	Sample( Sample const & src );
-	~Sample( void );
-
-	Sample & operator=( Sample const & rhs );
-	Sample 	operator+( Sample const & rhs ) const ;
-
-	int getN( void ) const { return this->_n; };
+	Cure( std::string const & type );
+	Cure( Cure const & src );
+	Cure & operator=( Cure const & rhs );	
+	~Cure();
+	std::string const & getType() const { return this->_type; };
+	unsigned int getXP() const { return this->_xp; };
+	Cure* clone( void ) const;
+	void use(ICharacter& target);
 
 private:
 
-	int _n;
-};
+	Cure( void );
 
-std::ostream &		operator<<( std::ostream & o, Sample const & i );
+};
 
 #endif
