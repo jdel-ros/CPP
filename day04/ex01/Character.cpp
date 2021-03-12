@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:52:10 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/10 14:05:15 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/11 09:06:01 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Character &	Character::operator=( Character const & rhs )
 
 void	Character::recoverAP( void )
 {
-	if (_actionPoints <= 30 && _actionPoints >= 0)
+	if (_actionPoints <= 30)
 		_actionPoints += 10;
 	else if (_actionPoints > 30 && _actionPoints < 40)
 		_actionPoints = 40;
@@ -67,7 +67,7 @@ void	Character::attack( Enemy *enemy )
 
 std::ostream & 		operator<<( std::ostream & o, Character const & i )
 {
-	if (i.getTypeWeapon() == "Plasma Rifle" || i.getTypeWeapon() ==  "Power Fist")
+	if (i.getTypeWeapon() == "Plasma Rifle" || i.getTypeWeapon() ==  "Power Fist" || i.getTypeWeapon() == "Bottle of Tequila")
 		o << i.getName() << " has " << i.getAP() << " AP and wields a " << i.getTypeWeapon() << std::endl;
 	else 
 		o << i.getName() << " has " << i.getAP() << " AP and is unarmed" << std::endl;
