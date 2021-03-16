@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 11:06:05 by juan              #+#    #+#             */
-/*   Updated: 2021/03/12 11:34:49 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/16 13:25:44 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ICharacter.hpp"
 
-class Character: public ICharacter
+class Character: virtual public ICharacter
 {
 
 public:
@@ -26,16 +26,16 @@ public:
 	Character & operator=( Character const & rhs );
 
 	std::string const & getName( void ) const { return this->_name; };
-	void equip( AMateria* materia );
+	virtual void equip( AMateria* materia );
 	void unequip( int i );
-	void use( int i, ICharacter& target );
+	void use( int i, ICharacter& target ); 
 
 private:
 
 	Character( void );
 	std::string _name;
-	AMateria _inventory[4];
-
-}
+	AMateria** _inventory;
+	int	_count;
+};
 
 #endif

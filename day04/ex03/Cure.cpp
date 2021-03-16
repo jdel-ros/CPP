@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:40:52 by juan              #+#    #+#             */
-/*   Updated: 2021/03/12 11:10:12 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/16 09:47:59 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cure::~Cure( void )
 
 }
 
-Cure *	Cure::clone( void ) const
+AMateria *	Cure::clone( void ) const
 {
 	return (new Cure);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:47:03 by juan              #+#    #+#             */
-/*   Updated: 2021/03/12 10:48:13 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/16 09:45:39 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include "AMateria.hpp"
 
-class Ice: public AMateria
+class Ice: virtual public AMateria
 {
 
 public:
 
-	Ice( std::string const & type );
+	Ice( void );
 	Ice( Ice const & src );
 	Ice & operator=( Ice const & rhs );	
 	~Ice();
@@ -28,10 +28,6 @@ public:
 	unsigned int getXP() const { return this->_xp; };
 	Ice* clone( void ) const;
 	void use(ICharacter& target);
-
-private:
-
-	Ice( void );
 
 };
 
