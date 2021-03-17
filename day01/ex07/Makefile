@@ -6,13 +6,13 @@
 #    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/01 14:40:13 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/03/05 10:13:50 by jdel-ros         ###   ########lyon.fr    #
+#    Updated: 2021/03/09 09:32:59 by jdel-ros         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	=	sed_loser
 SRC 	=	main.cpp
-RM 		=	rm -fclean
+RM 		=	rm
 C 		=	clang++
 FLAGS 	=	-Wall -Wextra -Werror -std=c++98
 OBJ 	=	${SRC:.cpp=.o}

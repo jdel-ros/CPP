@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 12:11:43 by juan              #+#    #+#             */
-/*   Updated: 2021/03/09 08:36:17 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/17 15:20:28 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/17 15:22:32 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <cstring>
+#include "RobotomyRequestForm.hpp"
 
-void		memoryLeak()
+RobotomyRequestForm::RobotomyRequestForm( const std::string target ): Form("Robotomy", 75, 45)
 {
-	std::string* panthere = new std::string("String panthere");
-	std::cout << *panthere << std::endl;
-	delete panthere;
+
 }
 
-int main()
+RobotomyRequestForm::~RobotomyRequestForm( void )
 {
-    memoryLeak();
-    return (0);
+
+}
+
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ): Form(src)
+{
+
+}
+
+RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+{
+	(void)rhs;
+	return *this;
 }

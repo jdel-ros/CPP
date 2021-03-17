@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 11:06:13 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/04 13:07:52 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 08:33:48 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Fixed::~Fixed( void )
 Fixed::Fixed( int const RawBits )
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_RawBits = RawBits << Fixed::_FractionalBits;
+	this->_RawBits = RawBits << this->_FractionalBits;
 }
 
 Fixed::Fixed( float const RawBits )
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_RawBits = (int)roundf(RawBits * ( 1 << Fixed::_FractionalBits));
+	this->_RawBits = roundf(RawBits * ( 1 << this->_FractionalBits));
 }
 
 Fixed::Fixed( Fixed const & src )
@@ -57,12 +57,12 @@ std::ostream &		operator<<( std::ostream & o, Fixed const & i )
 
 int		Fixed::toInt( void ) const
 {
-	return _RawBits >> Fixed::_FractionalBits;
+	return _RawBits >> this->_FractionalBits;
 }
 
 float		Fixed::toFloat( void ) const
 {
-	return this->_RawBits / (float)(1 << Fixed::_FractionalBits);
+	return this->_RawBits / (float)(1 << this->_FractionalBits);
 }
 
 int			Fixed::getRawBits( void ) const

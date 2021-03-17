@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 11:24:33 by juan              #+#    #+#             */
-/*   Updated: 2021/03/09 08:59:09 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/17 15:04:38 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/17 15:18:46 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEHORDE_HPP
-# define ZOMBIEHORDE_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Form.hpp"
 
-class ZombieHorde
+class PresidentialPardonForm: public Form
 {
+
 public:
 
-	ZombieHorde( int n );
-	~ZombieHorde( void );
-	void	announce( void ) const ;
+	~PresidentialPardonForm( void );
+	PresidentialPardonForm( const std::string target );
+	PresidentialPardonForm( PresidentialPardonForm const & src );
+
+	PresidentialPardonForm & operator=( PresidentialPardonForm const & rhs );
 
 private:
 
-	Zombie 	*_Zombies;
-	int _nbZombies;
-	static std::string		_types[3];
-	static std::string		_names[5];
+	PresidentialPardonForm( void );
+
 };
 
 #endif

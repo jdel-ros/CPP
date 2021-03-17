@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:37:59 by juan              #+#    #+#             */
-/*   Updated: 2021/02/27 11:20:16 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 08:41:53 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIEEVENT_HPP
 
 #include "Zombie.hpp"
+#include <time.h>
 
 class ZombieEvent
 {

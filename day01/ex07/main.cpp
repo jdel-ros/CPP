@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 14:44:45 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 18:25:38 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 10:07:35 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,35 @@ int			main(int argc, char **argv)
 	std::string buf;
 	newFile = argv[1];
 	newFile.append(".replace");
-	std::ifstream	ifs(argv[1]);
+	std::ifstream ifs(argv[1]);
 	std::ofstream ofs(newFile);
+	size_t	pos = 0;
 
-	while (std::getline(ifs, buf))
+	if (std::string(argv[2]).compare(argv[3]) == 0)
 	{
-		std::cout << buf << std::endl;
-		size_t	pos = 0;
-		// std::string		resul;
-
-		while (!buf.empty())
+		while (std::getline(ifs, buf))
 		{
-			if ((pos = buf.find(argv[2], pos)) != std::string::npos)
-			{
-				std::cout << pos << std::endl;
-				buf.replace(pos, std::string(argv[2]).size(), argv[3]);
-			}
-			ofs << buf.substr(0, pos);
-			buf.erase(0, pos);
-			pos = 0;
-			std::cout << "DEBUG = " << buf << std::endl;
+			ofs << buf;
+			if (!ifs.eof())
+				ofs << std::endl;
 		}
-		if (!ifs.eof())
-			ofs << std::endl;
+		return (0);
+	}
+	else 
+	{
+		while (std::getline(ifs, buf))
+		{
+			while (!buf.empty())
+			{
+				if ((pos = buf.find(argv[2], pos)) != std::string::npos)
+					buf.replace(pos, std::string(argv[2]).size(), argv[3]);
+				ofs << buf.substr(0, pos);
+				buf.erase(0, pos);
+				pos = 0;
+			}
+			if (!ifs.eof())
+				ofs << std::endl;
+		}
 	}
 	return (0);
 }

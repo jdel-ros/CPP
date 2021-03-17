@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 11:24:33 by juan              #+#    #+#             */
-/*   Updated: 2021/03/09 08:59:09 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/17 15:21:14 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/17 15:21:46 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEHORDE_HPP
-# define ZOMBIEHORDE_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Form.hpp"
 
-class ZombieHorde
+class ShrubberyCreationForm: public Form
 {
+
 public:
 
-	ZombieHorde( int n );
-	~ZombieHorde( void );
-	void	announce( void ) const ;
+	~ShrubberyCreationForm( void );
+	ShrubberyCreationForm( const std::string target );
+	ShrubberyCreationForm( ShrubberyCreationForm const & src );
+
+	ShrubberyCreationForm & operator=( ShrubberyCreationForm const & rhs );
 
 private:
 
-	Zombie 	*_Zombies;
-	int _nbZombies;
-	static std::string		_types[3];
-	static std::string		_names[5];
+	ShrubberyCreationForm( void );
+
 };
 
 #endif

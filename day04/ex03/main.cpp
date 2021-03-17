@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 08:04:26 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/16 13:24:42 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/16 13:35:36 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int 		main( void )
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+	ICharacter *you(me);
+	you->equip(tmp);
+	you->use(0, *bob);
+	you->use(1, *bob);
+	ICharacter *she(you);
+	she->equip(tmp);
+	she->use(0, *bob);
+	she->use(1, *bob);
 	delete bob;
 	delete me;
 	delete src;

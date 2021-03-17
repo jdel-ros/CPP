@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 12:25:55 by juan              #+#    #+#             */
-/*   Updated: 2021/03/02 12:21:26 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 08:59:20 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Zombie::Zombie()
 
 Zombie::~Zombie( void )
 {
-	std::cout << "<" << this->_name << " (" << this->_type << ")> Is m*therf*cking dead, CHECH !" << std::endl;
+	std::cout << "<" << this->_name << " (" << this->_type << ")> Is m*therf*cking dead, CHEH !" << std::endl;
 }
 
-void	Zombie::advert() const
+void	Zombie::announce() const
 {
 	std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiiinssss..." << std::endl;
 }

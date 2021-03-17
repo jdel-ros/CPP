@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 15:20:32 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/02/26 12:09:56 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 08:08:47 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void ponyOnTheStack()
 {
-	Pony ponyStack = Pony("Dider", "5 years old", "75km/h", 89);	
+	Pony ponyStack = Pony("Dider", 89);	
 	std::string buf;
 
 	std::string Pasta = "pasta";
 	std::string Vegetables = "vegetables";
 	std::string Nothing = "";
-	ponyStack.print_info("name");
-	ponyStack.print_info("weight");
-	ponyStack.print_info("age");
-	ponyStack.print_info("speed");
-	std::cout << "Poney gonna eat : " << std::endl;
+
+	ponyStack.printPoney();
+	std::cout << "Didier gonna eat : " << std::endl;
 	ponyStack.pony_eat(Pasta);
 	ponyStack.pony_eat(Vegetables);
 	ponyStack.pony_eat(Nothing);
@@ -32,18 +30,15 @@ void ponyOnTheStack()
 
 void ponyOnTheHeap()
 {
-	Pony  *ponyHeap = new Pony("Jacques", "7 years old", "82km/h", 96);	
+	Pony  *ponyHeap = new Pony("Jacques", 96);	
 	std::string buf;
 
 	std::string Pasta = "pasta";
 	std::string Vegetables = "vegetables";
 	std::string Nothing = "";
-	ponyHeap->print_info("name");
-	ponyHeap->print_info("weight");
-	ponyHeap->print_info("age");
-	ponyHeap->print_info("speed");
+	ponyHeap->printPoney();
 
-	std::cout << "Poney gonna eat : " << std::endl;
+	std::cout << "Jacques gonna eat : " << std::endl;
 	ponyHeap->pony_eat(Pasta);
 	ponyHeap->pony_eat(Vegetables);
 	ponyHeap->pony_eat(Nothing);

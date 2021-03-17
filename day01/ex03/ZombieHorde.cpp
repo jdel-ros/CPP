@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 11:28:18 by juan              #+#    #+#             */
-/*   Updated: 2021/03/02 12:21:52 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 08:59:38 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,19 @@ std::string ZombieHorde::_types[3] = {
 	"Elf",
 };
 
-std::string ZombieHorde::_names[5] = {
+std::string ZombieHorde::_names[5] =
+{
 	"Michmich",
-	"DiderDesch",
-	"JeanEudd",
-	"EasyMamene",
-	"SalutToi<3",
+	"Dider",
+	"JeanEud",
+	"Jacques",
+	"Aristote",
 };
 
-void		ZombieHorde::annonce( void ) const
+void		ZombieHorde::announce( void ) const
 {
 	if (_nbZombies < 0)
 		return ;
 	for (int i = 0; i < this->_nbZombies; i++)
-		_Zombies[i].advert();
+		_Zombies[i].announce();
 }

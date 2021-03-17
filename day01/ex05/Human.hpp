@@ -6,14 +6,14 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 11:05:13 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/01 11:22:09 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 08:51:44 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-
 #ifndef HUMAN_HPP
 # define HUMAN_HPP
+
+#include "Brain.hpp"
 
 class Human
 {

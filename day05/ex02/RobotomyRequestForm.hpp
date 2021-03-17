@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 12:11:43 by juan              #+#    #+#             */
-/*   Updated: 2021/03/09 08:36:17 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/17 15:19:39 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/17 15:20:20 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <cstring>
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-void		memoryLeak()
-{
-	std::string* panthere = new std::string("String panthere");
-	std::cout << *panthere << std::endl;
-	delete panthere;
-}
+#include "Form.hpp"
 
-int main()
+class RobotomyRequestForm: public Form
 {
-    memoryLeak();
-    return (0);
-}
+
+public:
+
+	~RobotomyRequestForm( void );
+	RobotomyRequestForm( const std::string target );
+	RobotomyRequestForm( RobotomyRequestForm const & src );
+
+	RobotomyRequestForm & operator=( RobotomyRequestForm const & rhs );
+
+private:
+
+	RobotomyRequestForm( void );
+
+};
+
+#endif

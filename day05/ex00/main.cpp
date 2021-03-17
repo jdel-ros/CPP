@@ -5,29 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 12:47:55 by juan              #+#    #+#             */
-/*   Updated: 2021/03/10 08:11:09 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/17 11:43:56 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/17 12:04:09 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#include "Bureaucrat.hpp"
 
-int			main(void)
+int			main( void )
 {
-	ZombieEvent Creation;
-	Zombie* Zombie1;
-	Zombie* Zombie2;
-
-	Creation.setZombieType("Human");
-	Zombie1 = Creation.newZombie("HumanZombie");
-	Zombie2 = Creation.newZombie("ChemicalZombie");
-
-	Creation.setZombieType("Tgrange");
-	for (int i = 0; i < 5; i++)
-		Creation.randomChump();
-
-	delete Zombie1;
-	delete Zombie2;
-
+	Bureaucrat Jones("Jones", 50);
+	Bureaucrat Kevin("Kevin", 50);
+	std::cout << std::endl;
+	Bureaucrat Jamy("Jamy", 200);
+	Bureaucrat Fred("Fred", -5);
+	std::cout << std::endl;
+	std::cout << Jones << Kevin << std::endl;
+	for( int i = 0; i < 100; i++)
+	{
+		Jones.decrementGrade();
+		Kevin.incrementGrade();
+	}
+	std::cout << std::endl;
+	std::cout << Jones << Kevin << std::endl;
+	return 0;
 }

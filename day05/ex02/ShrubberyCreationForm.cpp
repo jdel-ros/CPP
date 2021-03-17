@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 12:25:55 by juan              #+#    #+#             */
-/*   Updated: 2021/03/09 08:55:42 by jdel-ros         ###   ########lyon.fr   */
+/*   Created: 2021/03/17 15:21:50 by jdel-ros          #+#    #+#             */
+/*   Updated: 2021/03/17 15:22:14 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-Zombie::Zombie(std::string name, std::string type) : _name(name), _type(type)
+ShrubberyCreationForm::ShrubberyCreationForm( const std::string target ): Form("Shrubbery", 145, 137)
 {
-	this->announce();
+
 }
 
-Zombie::~Zombie( void )
+ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-	std::cout << "<" << this->_name << " (" << this->_type << ")> Is m*therf*cking dead, CHEH !" << std::endl;
+
 }
 
-void	Zombie::announce() const
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ): Form(src)
 {
-	std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiiinssss..." << std::endl;
+
+}
+
+ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+{
+	(void)rhs;
+	return *this;
 }
