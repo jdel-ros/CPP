@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 10:47:28 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 10:56:34 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 09:04:53 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		main(void)
 	goku.beRepaired(20);
 	std::cout << std::endl;
 
+	goku.vaulthunter_dot_exe("Freezer");
 	goku.vaulthunter_dot_exe("Freezer");
 	goku.vaulthunter_dot_exe("Freezer");
 	goku.vaulthunter_dot_exe("Freezer");

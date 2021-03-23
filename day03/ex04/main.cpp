@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 10:47:28 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 15:51:02 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 09:17:59 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,6 @@ int		main(void)
 	piccolo.meleeAttack("Cell");
 	std::cout << std::endl;
 	std::cout << std::endl;
-	piccolo.vaulthunter_dot_exe("Freezer");
-	piccolo.vaulthunter_dot_exe("Freezer");
 	piccolo.vaulthunter_dot_exe("Freezer");
 	piccolo.vaulthunter_dot_exe("Freezer");
 	std::cout << std::endl;

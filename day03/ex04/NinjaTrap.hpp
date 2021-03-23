@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 12:34:31 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 15:29:36 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 07:59:06 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
 	NinjaTrap & operator=( NinjaTrap const & rhs );
 
-	std::string	getName( void ) { return this->_name; };
+	std::string	getName( void );
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );

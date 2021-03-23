@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 09:57:32 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 15:29:55 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 07:58:39 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 
 	FragTrap & operator=( FragTrap const & rhs );
 
-	std::string	getName( void ) { return this->_name; };
+	std::string	getName( void );
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );

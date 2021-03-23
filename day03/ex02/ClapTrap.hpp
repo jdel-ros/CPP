@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 10:21:59 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 12:26:44 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 08:44:29 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ public:
 
 	ClapTrap & operator=( ClapTrap const & rhs );
 
-	void		rangedAttack( std::string const & target );
-	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
 

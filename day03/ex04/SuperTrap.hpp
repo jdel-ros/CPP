@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 13:07:44 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 14:59:44 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 09:12:49 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class SuperTrap : public virtual FragTrap, public virtual NinjaTrap
 
 public :
 
-	SuperTrap( void );
 	SuperTrap( std::string name );
 	SuperTrap( SuperTrap const & src );
 	~SuperTrap( void );

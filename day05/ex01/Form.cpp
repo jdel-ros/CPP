@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 13:36:37 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/17 14:54:19 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 09:42:43 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	Form::beSigned( Bureaucrat & src )
 	{
 		if (src.getGrade() <= _gradeSigned)
 			_signed = true;
+		else
 			throw GradeTooLowException();
 	}
 	catch(const GradeTooLowException & e)

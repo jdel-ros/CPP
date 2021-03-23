@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 09:57:34 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/04 14:10:14 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 09:03:36 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 FragTrap::FragTrap( void ): _name("Default"), _hitPoints(100), _maxHitPoints(100), _energyPoints(100), _maxEnergyPoints(100), _level(1), _meleeAttackDamage(30), _rangedAttackDamage(20), _armorDamageReduction(5)
 {
+	srand(time(NULL));
 	std::cout << "The Saiyan " << this->_name << " arrived on Namek !" << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ): _name(name), _hitPoints(100), _maxHitPoints(100), _energyPoints(100), _maxEnergyPoints(100), _level(1), _meleeAttackDamage(30), _rangedAttackDamage(20), _armorDamageReduction(5)
 {
-	(void)_energyPoints;
-	(void)_maxEnergyPoints;
-	(void)_level;
-	(void)_meleeAttackDamage;
-	(void)_rangedAttackDamage;
+	srand(time(NULL));
 	std::cout << "The Saiyan " << this->_name << " arrived on Namek !" << std::endl;
 }
 
-FragTrap::FragTrap(  FragTrap const & src )
+FragTrap::FragTrap(  FragTrap const & src ): _name(src._name), _hitPoints(src._hitPoints), _maxHitPoints(src._maxHitPoints), _energyPoints(src._energyPoints), _maxEnergyPoints(src._maxEnergyPoints), _level(src._level), _meleeAttackDamage(src._meleeAttackDamage), _rangedAttackDamage(src._rangedAttackDamage), _armorDamageReduction(src._armorDamageReduction)
 {
 	std::cout << "The copy of Saiyan " << this->_name << " arrived too on Namek !" << std::endl;
 	*this = src;
@@ -40,7 +37,6 @@ FragTrap::~FragTrap ( void )
 
 FragTrap &	FragTrap::operator=( FragTrap const & rhs)
 {
-	std::cout << "Assignement = have been called" << std::endl;
 	this->_name = rhs._name;
 	return *this;
 }
@@ -51,7 +47,7 @@ void	FragTrap::takeDamage( unsigned int amount )
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
 	if (this->_hitPoints > 0)
-		std::cout << "Freezer block 5 HP with his armor" << std::endl;
+		std::cout << "Freezer block " << _armorDamageReduction << " HP with his armor" << std::endl;
 	std::cout << "Freezer have " << _hitPoints << " HP !" << std::endl;
 }
 
@@ -65,14 +61,14 @@ void	FragTrap::beRepaired( unsigned int amount )
 
 void	FragTrap::rangedAttack( std::string const & target )
 {
-	std::cout << this->_name << " attacks " << target << " at range, causing 20 points of damage !" << std::endl;
-	takeDamage(20);
+	std::cout << this->_name << " attacks " << target << " at range, causing " << _rangedAttackDamage << " points of damage !" << std::endl;
+	takeDamage(_rangedAttackDamage);
 }
 
 void	FragTrap::meleeAttack( std::string const & target )
 {
-	std::cout << this->_name << " attacks " << target << " at melee, causing 30 points of damage !" << std::endl;
-	takeDamage(30);
+	std::cout << this->_name << " attacks " << target << " at melee, causing " << _meleeAttackDamage << " points of damage !" << std::endl;
+	takeDamage(_meleeAttackDamage);
 }
 
 std::string FragTrap::_names_attack[5] =
@@ -86,14 +82,13 @@ std::string FragTrap::_names_attack[5] =
 
 void	FragTrap::vaulthunter_dot_exe( std::string const & target )
 {
-	srand(time(NULL));
 	std::string attack = FragTrap::_names_attack[std::rand() % 5];
 
 	_energyPoints -= 25;	
-	if (_energyPoints > 0)
+	if (_energyPoints >= 0)
 	{
 		std::cout << this->_name << " attacks " << target << " with "<< attack << ", causing 35 points of damage !" << std::endl;
-		std::cout << "Goku have " << _energyPoints << " mana" << std::endl;
+		std::cout << this->_name << " have " << _energyPoints << " mana" << std::endl;
 		if (attack.compare("Genkidama") == 0)
 		{
 			std::cout << "The power of the planet is gather in " << this->_name << " !!! " << std::endl;
@@ -104,6 +99,6 @@ void	FragTrap::vaulthunter_dot_exe( std::string const & target )
 	}
 	else
 	{
-		std::cout << "Goku want attack with " << attack << " but he have no more mana, go to eat and come back !" << std::endl; 
+		std::cout  << this->_name << " want attack with " << attack << " but he have no more mana, go to eat and come back !" << std::endl; 
 	}
 }

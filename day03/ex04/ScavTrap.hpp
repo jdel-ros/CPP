@@ -28,7 +28,7 @@ public:
 
 	ScavTrap & operator=( ScavTrap const & rhs );
 
-	std::string	getName( void ) { return this->_name; };
+	std::string	getName( void );
 	void		rangedAttack( std::string const & target );
 	void		meleeAttack( std::string const & target );
 	void		takeDamage( unsigned int amount );

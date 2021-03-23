@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 12:34:29 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 15:10:13 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 09:10:38 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,13 @@ NinjaTrap::~NinjaTrap ( void )
 
 NinjaTrap &	NinjaTrap::operator=( NinjaTrap const & rhs)
 {
-	std::cout << "Assignement = have been called" << std::endl;
 	this->_name = rhs._name;
 	return *this;
+}
+
+std::string	NinjaTrap::getName( void )
+{
+	return this->_name;
 }
 
 void	NinjaTrap::takeDamage( unsigned int amount )
@@ -48,8 +52,8 @@ void	NinjaTrap::takeDamage( unsigned int amount )
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
 	if (this->_hitPoints > 0)
-		std::cout << "Ninja block 5 HP with his armor" << std::endl;
-	std::cout << "Ninja have " << _hitPoints << " HP !" << std::endl;
+		std::cout << "Boo block " << _armorDamageReduction << " HP with his armor" << std::endl;
+	std::cout << "Boo have " << _hitPoints << " HP !" << std::endl;
 }
 
 void	NinjaTrap::beRepaired( unsigned int amount )
@@ -57,19 +61,19 @@ void	NinjaTrap::beRepaired( unsigned int amount )
 	this->_hitPoints += amount;
 	if (this->_hitPoints > _maxHitPoints)
 		this->_hitPoints = _maxHitPoints;
-	std::cout << "Ninja have " << _hitPoints << " HP !" << std::endl;
+	std::cout << "Boo have " << _hitPoints << " HP !" << std::endl;
 }
 
 void	NinjaTrap::rangedAttack( std::string const & target )
 {
-	std::cout << this->_name << " attacks " << target << " at range, causing 5 points of damage !" << std::endl;
-	takeDamage(5);
+	std::cout << this->_name << " attacks " << target << " at range, causing " << _rangedAttackDamage << " points of damage !" << std::endl;
+	takeDamage(_rangedAttackDamage);
 }
 
 void	NinjaTrap::meleeAttack( std::string const & target )
 {
-	std::cout << this->_name << " attacks " << target << " at melee, causing 60 points of damage !" << std::endl;
-	takeDamage(60);
+	std::cout << this->_name << " attacks " << target << " at melee, causing " << _meleeAttackDamage << " points of damage !" << std::endl;
+	takeDamage(_meleeAttackDamage);
 }
 
 void	NinjaTrap::ninjaShoebox( NinjaTrap & NinjaTarget )

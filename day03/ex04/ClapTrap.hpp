@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 10:21:59 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/05 15:31:53 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 09:07:30 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ class ClapTrap
 
 public:
 
-	ClapTrap( void );
 	ClapTrap( std::string name, int hitPoints, int maxHitPoints, int energyPoints, int maxEnergyPoints, int level, int meleeAttackDamage, int rangedAttackDamage, int armorDamageReduction );
 	ClapTrap( ClapTrap const & src );
 	~ClapTrap( void );
 
 	ClapTrap & operator=( ClapTrap const & rhs );
 
-	std::string	getName( void ) { return this->_name; };
-	void		rangedAttack( std::string const & target );
-	void		meleeAttack( std::string const & target );
+	std::string	getName( void );
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
 
