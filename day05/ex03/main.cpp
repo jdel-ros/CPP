@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 11:43:56 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 15:10:56 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 08:02:39 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 int			main( void )
 {
+	srand(time(NULL));
 	Bureaucrat Kevin("Kevin", 1);
 	Intern someRandomIntern;
 	Form* form1;

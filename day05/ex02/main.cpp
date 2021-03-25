@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 11:43:56 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 10:45:40 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 08:00:29 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int			main( void )
 {
+	srand(time(NULL));
 	Bureaucrat Jones("Jones", 50);
 	Bureaucrat Kevin("Kevin", 50);
 	std::cout << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:14:06 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/24 16:50:09 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 12:02:54 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ struct bl
 	bool _str;
 	bool _float;
 	bool _impossible;
+	bool _max_inf_int;
+	bool _min_inf_int;
+	bool _max_inf_double;
+	bool _min_inf_double;
+	bool _max_inf_float;
+	bool _min_inf_float;
+	bool _nan;
 	unsigned long size_float;
 };
 
@@ -29,6 +36,21 @@ int		to_float(char *argv, bl bl)
 	int size = static_cast<int>(bl.size_float);
 	float ret = 0.0f;
 	std::string str = argv;
+	if (bl._nan)
+	{
+		std::cout << "float: nanf" << std::endl;
+		return (0);
+	}
+	if (bl._max_inf_float)
+	{
+		std::cout << "float: +inff" << std::endl;
+		return (0);
+	}
+	if (bl._min_inf_float)
+	{
+		std::cout << "float: -inff" << std::endl;
+		return (0);
+	}
 	if (bl._impossible)
 	{
 		std::cout << "float: impossible" << std::endl;
@@ -46,18 +68,8 @@ int		to_float(char *argv, bl bl)
 		std::cout << std::fixed;
 		std::cout << std::setprecision(size) << "float: " << ret << "f" << std::endl;
 	}
-	// std::cout << "DEBUG " << str << std::endl;
-	if (bl._str)
-	{
-		if (str == "nan" || str == "nanf")
-			std::cout << "float: nanf" << std::endl;
-		else if (str == "-inff" || str == "-inf")
-			std::cout << "float: -inf" << std::endl;
-		else if (str == "+inff" || str == "+inf")
-			std::cout << "float: inf" << std::endl;
-		else
-			std::cout << "float: impossible" << std::endl;
-	}
+	else if (bl._str)
+		std::cout << "float: impossible" << std::endl;
 	return (0);
 }
 
@@ -66,6 +78,21 @@ int		to_double(char *argv, bl bl)
 	double ret = 0.0;
 	int size = static_cast<int>(bl.size_float);
 	std::string str = argv;
+	if (bl._nan)
+	{
+		std::cout << "double: nan" << std::endl;
+		return (0);
+	}
+	if (bl._max_inf_double)
+	{
+		std::cout << "double: +inf" << std::endl;
+		return (0);
+	}
+	if (bl._min_inf_double)
+	{
+		std::cout << "double: -inf" << std::endl;
+		return (0);
+	}
 	if (bl._impossible)
 	{
 		std::cout << "double: impossible" << std::endl;
@@ -82,17 +109,8 @@ int		to_double(char *argv, bl bl)
 		std::cout << std::fixed;
 		std::cout << std::setprecision(size) << "double: " << ret << std::endl;
 	}
-	if (bl._str)
-	{
-		if (str == "nan")
-			std::cout << "double: nanf" << std::endl;
-		else if (str == "-inf")
-			std::cout << "double: -inf" << std::endl;
-		else if (str == "+inf")
-			std::cout << "double: inf" << std::endl;
-		else
-			std::cout << "double: impossible" << std::endl;
-	}
+	else if (bl._str)
+		std::cout << "double: impossible" << std::endl;
 	return (0);
 }
 
@@ -100,9 +118,19 @@ int		to_int(char *argv, bl bl)
 {
 	int ret = 0;
 	std::cout << "int: ";
+	if (bl._max_inf_int)
+	{
+		std::cout << "+inf" << std::endl;
+		return (0);
+	}
+	if (bl._min_inf_int)
+	{
+		std::cout << "-inf" << std::endl;
+		return (0);
+	}
 	if (bl._impossible)
 	{
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "impossible" << std::endl;
 		return (0);
 	}
 	if (bl._char)
@@ -144,14 +172,45 @@ int		to_char(char *argv, bl bl)
 	return (0);
 }
 
+int		is_limit(char *argv, bl *bl)
+{
+	double tmp = strtod(argv, NULL);
+	if (tmp > std::numeric_limits<int>::max()) 
+		bl->_max_inf_int = true;
+	if (tmp < std::numeric_limits<int>::min()) 
+		bl->_min_inf_int = true;
+	if (tmp > std::numeric_limits<float>::max()) 
+		bl->_max_inf_float = true;
+	if (tmp < -std::numeric_limits<float>::max() + 1) 
+		bl->_min_inf_float = true;
+	if (tmp > std::numeric_limits<double>::max()) 
+		bl->_max_inf_double = true;
+	if (tmp < -std::numeric_limits<double>::max() + 1) 
+		bl->_min_inf_double = true;
+	if (tmp != tmp)
+		bl->_nan = true;
+	return (0);
+}
+
+void		init_bool(bl *bl)
+{
+	bl->_char = false;
+	bl->_int = false;
+	bl->_str = false;
+	bl->_float = false;
+	bl->_impossible = false;
+	bl->_max_inf_int= false;
+	bl->_min_inf_int= false;
+	bl->_max_inf_double= false;
+	bl->_min_inf_double= false;
+	bl->_max_inf_float= false;
+	bl->_min_inf_float= false;
+	bl->_nan = false;
+}
+
 int		main(int argc, char **argv)
 {
 	bl bl;
-	bl._char = false;
-	bl._int = false;
-	bl._str = false;
-	bl._float = false;
-	bl._impossible = false;
 	bl.size_float = 1;
 	std::string buf;
 	if (argc != 2)
@@ -159,6 +218,8 @@ int		main(int argc, char **argv)
 		std::cout << "Error: Arguments" << std::endl;
 		return (1);
 	}
+	init_bool(&bl);
+	is_limit(argv[1], &bl);
 	std::string str = argv[1];
 	if (isalpha(str[0]))
 	{
@@ -175,7 +236,10 @@ int		main(int argc, char **argv)
 			if (str[i] == '.')
 				bl._float = true;
 			if (isdigit(str[i]) == 0 && str[i] != 'f' && str[i] != '.')
-				bl._impossible = true;
+			{
+				if (str[i] != '-' && str[i] != '+')
+					bl._impossible = true;
+			}
 			if (str[i] == 'f' && str[i + 1] == 'f')
 				bl._impossible = true;
 		}
@@ -195,7 +259,6 @@ int		main(int argc, char **argv)
 				bl.size_float = 1;
 		}
 	}
-	std::cout << bl._impossible << std::endl;
 	to_char(argv[1], bl);
 	to_int(argv[1], bl);
 	to_float(argv[1], bl);
