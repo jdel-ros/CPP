@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:07 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/25 13:39:27 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 08:27:42 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 struct Data
 {
 	std::string s1;
-	std::string s2;
 	int			n;
+	std::string s2;
 };
 
 void		*serialize( void )
@@ -37,9 +37,15 @@ void		*serialize( void )
 	return serialize_str;
 }
 
-void		*deserialize( void * raw)
+Data		*deserialize( void * raw)
 {
+	Data * deserialize = new Data;
 
+	char * str = reinterpret_cast<char *>(raw);
+	deserialize->s1 = std::string(str, 8);
+	deserialize->n = *reinterpret_cast<int *>(str + 8);
+	deserialize->s2 = std::string(str + 8 + sizeof(int), 8);
+	return deserialize;
 }
 
 int			main( void )
@@ -47,13 +53,18 @@ int			main( void )
 	srand(static_cast<unsigned int>(time(NULL)));
 	void *serialize_str = serialize();
 	std::cout << serialize_str << std::endl;
-
-	char *c = reinterpret_cast<char *>(serialize_str);
+	unsigned char *str = reinterpret_cast<unsigned char *>(serialize_str);
 	for(unsigned long i = 0; i < 8; i++)
-		std::cout << c[i];
-	std::cout << " " << *reinterpret_cast<int *>(c + 8) << std::cout << " ";
+		std::cout << str[i];
+	std::cout << " " << *reinterpret_cast<int *>(str + 8);
+	std::cout << " ";
 	for(unsigned long i = 8 + sizeof(int); i < 16 + sizeof(int); i++)
-		std::cout << c[i];
+		std::cout << str[i];
 	std::cout << std::endl;
+
+	Data *data = deserialize(serialize_str);
+	std::cout << data->s1 << " " << data->n  << " " << data->s2 << std::endl;
+
+	delete data;
 	return (0);
 }
