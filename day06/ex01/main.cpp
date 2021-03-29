@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 12:06:07 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/29 08:27:42 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 13:24:21 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		*serialize( void )
 	return serialize_str;
 }
 
-Data		*deserialize( void * raw)
+Data		*deserialize( void * raw )
 {
 	Data * deserialize = new Data;
 

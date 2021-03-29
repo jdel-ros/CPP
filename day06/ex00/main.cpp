@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:14:06 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/25 12:02:54 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 12:16:04 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,7 @@ int		main(int argc, char **argv)
 	init_bool(&bl);
 	is_limit(argv[1], &bl);
 	std::string str = argv[1];
-	if (isalpha(str[0]))
+	if (isprint(str[0]))
 	{
 		if (str.length() == 1)
 			bl._char = true;
