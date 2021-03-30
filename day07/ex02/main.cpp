@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:29:50 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/29 17:02:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 13:13:04 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ int			main(void)
 		std::cout << test3[i] << " ";
 	}
 	std::cout << std::endl;
-	std::cout << test3[16] << std::endl;
+	try
+	{
+		std::cout << test3[16] << std::endl;
+	}
+	catch(const std::length_error & le)
+	{
+		std::cerr << le.what() << std::endl;
+	}
 	return (0);
 }

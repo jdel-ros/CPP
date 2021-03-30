@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 16:07:35 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/29 16:56:46 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 13:13:04 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ public:
 	T &		operator[]( unsigned int i ) const
 	{
 		if (i < 0 || i >= this->_n || this->_array == NULL)
-			throw std::exception();
+			throw std::length_error("Out of size");
 		return this->_array[i];
 	}
 
