@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:33:01 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/30 13:10:45 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/15 09:01:22 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int			main(void)
 {
-	Span sp = Span(1);
+	Span sp = Span(10);
 	try
 	{
-		sp.addNumber(5);
+		sp.addNumber(12);
 		sp.addNumber(3);
-		sp.addNumber(17);
+		sp.addNumber(-17);
 		sp.addNumber(9);
 		sp.addNumber(11);
 	}
@@ -27,20 +27,22 @@ int			main(void)
 	{
 		std::cerr << of.what() << std::endl;
 	}
+	// sp.printNumber();
+	std::cout << std::endl;
 	try
 	{
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "Shortest = " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest = " << sp.longestSpan() << std::endl;
 	}
 	catch(const std::length_error & le)
 	{
 		std::cerr << le.what() << std::endl;
 	}
 
-	Span	mySpan(10000);
+	Span	mySpan(150);
 	try
 	{
-		mySpan.addNumberEasier(60, 10000);
+		mySpan.addNumberEasier(-1, 100);
 	}
 	catch(const std::out_of_range & of)
 	{
@@ -57,5 +59,4 @@ int			main(void)
 	{
 		std::cerr << le.what() << std::endl;
 	}
-	// mySpan.printNumber();
 }

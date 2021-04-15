@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 11:18:21 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/10 11:18:39 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:08:41 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class Barman : public virtual Victim
 public:
 
 	Barman( std::string name );
-	~Barman( void );
+	virtual ~Barman( void );
 	Barman( Barman const & src);
-	std::string getName( void ) const { return this->_name; };
 	Barman & operator=( Barman const & rhs );
 	virtual void getPolymorphed( void ) const;
 	

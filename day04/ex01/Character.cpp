@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:52:10 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/11 09:06:01 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 07:57:26 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,31 @@ Character::~Character( void )
 
 }
 
-Character::Character( Character const & src ): _name(src._name)
+Character::Character( Character const & src )
 {
 	*this = src;
+}
+
+std::string	Character::getTypeWeapon( void ) const
+{
+	return _weapon->getName();
+}
+
+int		Character::getAP( void ) const
+{
+	return this->_actionPoints;
+}
+
+std::string const &	Character::getName( void ) const
+{
+	return this->_name;
 }
 
 Character &	Character::operator=( Character const & rhs )
 {
 	this->_name = rhs._name;
-	// this->_apcost = rhs._apcost;
-	// this->_damage = rhs._damage;;
+	this->_actionPoints = rhs._actionPoints;
+	this->_weapon = NULL;
 	return *this;
 }
 
@@ -45,23 +60,26 @@ void	Character::recoverAP( void )
 
 void	Character::equip( AWeapon *weapon )
 {
-	_weapon = weapon;
+	this->_weapon = weapon;
 }
 
 void	Character::attack( Enemy *enemy )
 {
-	if (enemy->getHP() <= 0)
+	if (enemy->getHP() == 0)
 		return ;
 	if (_weapon == NULL)
 		return ;
 	_actionPoints -= _weapon->getAPCost();
 	if (_actionPoints <= 0)
+	{
+		std::cout << this->_name << " have no more ap, too baaaaad !" << std::endl;
 		return ;
+	}
 	_enemy = enemy;
 	std::cout << _name << " attacks " << _enemy->getType() << " with a " << _weapon->getName() << std::endl;
 	_weapon->attack();
-	_enemy->setHP(_weapon->getDamage());
-	if (_enemy->getHP() <= 0)
+	_enemy->takeDamage(_weapon->getDamage());
+	if (_enemy->getHP() == 0)
 		delete enemy;
 }
 

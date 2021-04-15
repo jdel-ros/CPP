@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 11:06:05 by juan              #+#    #+#             */
-/*   Updated: 2021/03/16 13:25:44 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 08:54:08 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Character( Character const & src );
 	Character & operator=( Character const & rhs );
 
-	std::string const & getName( void ) const { return this->_name; };
+	std::string const & getName( void ) const;
 	virtual void equip( AMateria* materia );
 	void unequip( int i );
 	void use( int i, ICharacter& target ); 

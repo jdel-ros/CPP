@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 13:36:37 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 10:31:50 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 13:12:28 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ Form::~Form( void )
 
 Form::Form( Form const & src ): _name(src._name), _gradeSigned(src._gradeSigned), _gradeExecute(src._gradeExecute), _signed(src._signed)
 {
-	*this = src;
 }
 
 Form & Form::operator=( Form const & rhs )

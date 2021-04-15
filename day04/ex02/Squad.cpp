@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Squad.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:20:09 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/12 10:10:55 by juan             ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 08:48:25 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,4 @@ int		Squad::push( ISpaceMarine *unit_push )
 		_count++;
 	}
 	return (_count);
-	
 }

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:48:21 by juan              #+#    #+#             */
-/*   Updated: 2021/03/16 08:12:29 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 08:07:59 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,22 @@ Ice::~Ice( void )
 
 }
 
+Ice::Ice( Ice const & src ): AMateria(src)
+{
+
+}
+
+Ice & Ice::operator=( Ice const & rhs )
+{
+	this->_type = rhs._type;
+	this->_xp = rhs._xp;
+	return *this;
+}
+
 Ice *	Ice::clone( void ) const
 {
-	return (new Ice);
+	Ice *newice = new Ice(*this);
+	return (newice);
 }
 
 void	Ice::use( ICharacter & target )

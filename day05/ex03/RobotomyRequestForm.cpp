@@ -6,13 +6,13 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:20:28 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/25 08:02:34 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 12:00:36 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( const std::string target ): Form("Robotomy", 75, 45)
+RobotomyRequestForm::RobotomyRequestForm( const std::string target ): Form("Robotomy", 72, 45)
 {
 	setTarget(target);
 }

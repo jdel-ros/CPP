@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 10:42:26 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 10:18:19 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 10:51:37 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ public:
 private:
 
 	Bureaucrat( void );
-	std::string _name;
+	const std::string _name;
 	int _grade;
 
 };

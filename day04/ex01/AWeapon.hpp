@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:35:50 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/16 09:39:56 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 08:24:56 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ public:
 	AWeapon( AWeapon const & src );
 	AWeapon & operator=( AWeapon const & rhs );
 
-	std::string const & getName( void ) const { return this->_name; };
-	int getAPCost( void ) const { return this->_apcost; };
-	int getDamage( void ) const { return this->_damage; };
+	std::string const & getName( void ) const;
+	int getAPCost( void ) const;
+	int getDamage( void ) const;
 	virtual void attack( void ) const = 0;
 
 protected:

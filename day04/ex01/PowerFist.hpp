@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:20:15 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 16:31:40 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 08:23:16 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ class PowerFist: virtual public AWeapon
 public:
 
 	PowerFist( void );
-	~PowerFist( void );
+	virtual ~PowerFist( void );
 
-	std::string const & getName( void ) const { return this->_name; };
-	int getAPCost( void ) const { return this->_apcost; };
-	int getDamage( void ) const { return this->_damage; };
 	virtual void attack( void ) const;
 
 private:

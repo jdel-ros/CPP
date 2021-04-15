@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 11:12:07 by juan              #+#    #+#             */
-/*   Updated: 2021/03/16 13:26:16 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:06:36 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ Character::~Character( void )
 Character::Character( Character const & src )
 {
 	*this = src;
+}
+
+std::string const & Character::getName( void ) const
+{
+	return this->_name;
 }
 
 Character & Character::operator=( Character const & rhs )

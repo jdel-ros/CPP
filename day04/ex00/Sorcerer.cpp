@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 10:18:56 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 15:02:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:09:43 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ std::ostream &		operator<<( std::ostream & o, Sorcerer const & i )
 {
 	o << "I am " << i.getName() << ", " << i.getTitle() << ", and I like ponies!" << std::endl;
 	return o;
+}
+
+std::string Sorcerer::getName( void ) const
+{
+	return this->_name;
+}
+std::string Sorcerer::getTitle( void ) const
+{
+	return this->_title;
 }
 
 void	Sorcerer::polymorph( Victim const & victim ) const

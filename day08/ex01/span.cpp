@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:01:07 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/30 13:07:55 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/15 09:14:32 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Span::Span( unsigned int n): _n(n)
 {
-
+	_vector.reserve(n);
 }
 
 Span::~Span( void )
@@ -22,9 +22,8 @@ Span::~Span( void )
 
 }
 
-Span::Span( Span const & src )
+Span::Span( Span const & src ): _n(src._n)
 {
-	*this = src;
 }
 
 Span &	Span::operator=( Span const & rhs )
@@ -33,16 +32,16 @@ Span &	Span::operator=( Span const & rhs )
 	return *this;
 }
 
-void	Span::addNumber( unsigned int i )
+void	Span::addNumber( long int i )
 {
 	if (_vector.size() >= _n)
 		throw std::out_of_range("Out of size.");
 	_vector.push_back(i);
 }
 
-void	Span::addNumberEasier( unsigned int i, unsigned int j )
+void	Span::addNumberEasier( long int i, long int j )
 {
-	for (unsigned int k = i; k <= j; k++)
+	for (int k = i; k <= j; k++)
 		addNumber(k);
 }
 
@@ -54,7 +53,7 @@ void	Span::printNumber( void )
 
 unsigned int	Span::shortestSpan( void )
 {
-	unsigned int ret = INT_MAX;
+	unsigned long int ret = INT_MAX;
 	if (_vector.size() == 0)
 		throw std::length_error("Lenght Error.");
 	else if (_vector.size() == 1)

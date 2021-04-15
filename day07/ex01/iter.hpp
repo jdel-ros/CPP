@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 13:25:55 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/29 14:27:45 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/14 15:36:00 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		iter( T *arr, int size, void (*f)(T const &) )
 template< typename T >
 void		ft_print( T const & src)
 {
-	std::cout << src;
+	std::cout << src << " ";
 }
 
 #endif

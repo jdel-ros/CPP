@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 10:42:26 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/17 14:30:51 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 10:50:43 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ public:
 	Bureaucrat( Bureaucrat const & src );
 
 	Bureaucrat & operator=( Bureaucrat const & rhs );
-	int	getGrade( void ) const { return this->_grade; };
-	std::string getName( void ) const { return this->_name; };
+	int	getGrade( void ) const;
+	std::string getName( void ) const;
 	void setGrade( int grade );
 	void incrementGrade( void );
 	void decrementGrade( void );
@@ -49,7 +49,7 @@ public:
 private:
 
 	Bureaucrat( void );
-	std::string _name;
+	const std::string _name;
 	int _grade;
 
 };

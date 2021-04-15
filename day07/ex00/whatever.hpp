@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 13:09:08 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/29 13:18:20 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/14 15:29:46 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,18 @@ void	swap( T & lhs, T & rhs )
 template< typename T>
 T const &		min( T const & lhs, T const & rhs )
 {
-	if (lhs == rhs)
+	if (lhs > rhs)
+		return rhs;
+	else if (lhs < rhs)
+		return lhs;
+	else
+		return rhs;
+}
+
+template< typename T>
+T &		min( T & lhs, T & rhs )
+{
+	if (lhs > rhs)
 		return rhs;
 	else if (lhs < rhs)
 		return lhs;
@@ -37,7 +48,18 @@ T const &		min( T const & lhs, T const & rhs )
 template< typename T>
 T const &		max( T const & lhs, T const & rhs )
 {
-	if (lhs == rhs)
+	if (lhs < rhs)
+		return rhs;
+	else if (lhs > rhs)
+		return lhs;
+	else
+		return rhs;
+}
+
+template< typename T>
+T &		max( T & lhs, T & rhs )
+{
+	if (lhs < rhs)
 		return rhs;
 	else if (lhs > rhs)
 		return lhs;

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 16:07:35 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/30 13:13:04 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/14 15:37:38 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ public:
 		{
 			if (this->_array != NULL)
 				delete [] this->_array;
-			_n = rhs._n;
+			this->_n = rhs._n;
 			this->_array = new T[rhs._n];
 			for(unsigned long i = 0; i < rhs._n; i++)
 				this->_array[i] = rhs._array[i];

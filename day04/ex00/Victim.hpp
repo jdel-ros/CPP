@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:48:03 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 15:12:47 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:08:33 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Victim
 public:
 
 	Victim( std::string name );
-	~Victim( void );
+	virtual ~Victim( void );
 	Victim( Victim const & src);
-	std::string getName( void ) const { return this->_name; };
+	std::string getName( void ) const;
 	Victim & operator=( Victim const & rhs );
 	virtual void getPolymorphed( void ) const;
 

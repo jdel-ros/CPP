@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:01:04 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/30 11:23:18 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/15 09:00:57 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ public:
 	Span( Span const & src );
 	Span & operator=( Span const & rhs );
 
-	void	addNumber( unsigned int i );
-	void	addNumberEasier( unsigned int i, unsigned int j );
+	void	addNumber( long int i );
+	void	addNumberEasier( long int i, long int j );
 	void	printNumber( void );
 	unsigned int	shortestSpan( void );
 	unsigned int	longestSpan( void );

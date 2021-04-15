@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 10:54:03 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 15:04:25 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 13:10:53 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ Intern::Intern( Intern const & src )
 	*this = src;
 }
 
+Intern & Intern::operator=( Intern const & rhs )
+{
+	(void)rhs;
+	return *this;
+}
+
 Form * Intern::createPresidential( std::string target )
 {
 	return new PresidentialPardonForm( target );
@@ -40,12 +46,6 @@ Form * Intern::createRobotomy( std::string target )
 Form * Intern::createShrubbery( std::string target )
 {
 	return new ShrubberyCreationForm( target );
-}
-
-Intern & Intern::operator=( Intern const & rhs )
-{
-	(void)rhs;
-	return *this;
 }
 
 Form * Intern::makeForm( std::string name, std::string target )

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 08:04:26 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/16 13:35:36 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 08:10:16 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ int 		main( void )
 	you->equip(tmp);
 	you->use(0, *bob);
 	you->use(1, *bob);
-	ICharacter *she(you);
+	ICharacter *she = you;
 	she->equip(tmp);
 	she->use(0, *bob);
 	she->use(1, *bob);
+
 	delete bob;
 	delete me;
 	delete src;

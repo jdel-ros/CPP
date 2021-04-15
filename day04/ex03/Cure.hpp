@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:37:03 by juan              #+#    #+#             */
-/*   Updated: 2021/03/16 12:30:27 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 08:06:19 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ public:
 
 	Cure( void );
 	~Cure();
+	Cure( Cure const & src );
+	Cure & operator=( Cure const & rhs );	
 	AMateria* clone( void ) const;
 	void use( ICharacter& target );
 
 private: 
-
-	Cure( Cure const & src );
-	Cure & operator=( Cure const & rhs );	
 
 };
 

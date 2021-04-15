@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:26:41 by juan              #+#    #+#             */
-/*   Updated: 2021/03/16 13:24:54 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 08:09:36 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@ AMateria::AMateria( std::string const & type ): _type(type)
 	_xp = 0;
 }
 
-AMateria::AMateria( AMateria const & src )
+AMateria::AMateria( AMateria const & src ): _type(src._type), _xp(src._xp)
 {
-	*this = src;
+}
+
+std::string const & AMateria::getType( void ) const
+{
+	return this->_type;
+}
+
+unsigned int AMateria::getXP( void ) const
+{
+	return this->_xp;
 }
 
 AMateria & AMateria::operator=( AMateria const & rhs )

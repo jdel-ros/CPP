@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:30:58 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 15:12:40 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:08:46 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class Peon : public virtual Victim
 public:
 
 	Peon( std::string name );
-	~Peon( void );
+	virtual ~Peon( void );
 	Peon( Peon const & src);
-	std::string getName( void ) const { return this->_name; };
 	Peon & operator=( Peon const & rhs );
 	virtual void getPolymorphed( void ) const;
 	

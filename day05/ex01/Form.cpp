@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 13:36:37 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 09:42:43 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 13:12:27 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ Form::~Form( void )
 
 Form::Form( Form const & src ): _name(src._name), _gradeSigned(src._gradeSigned), _gradeExecute(src._gradeExecute), _signed(src._signed)
 {
-	*this = src;
 }
 
 Form & Form::operator=( Form const & rhs )
@@ -55,6 +54,26 @@ std::ostream &		operator<<( std::ostream & o, Form const & i )
 {
 	o << "Form " << i.getName() << ", grade signed : " << i.getGradeSigned()  << ", grade execute : " << i.getGradeExecute() << " signed : " << i.getSigned() << std::endl;
 	return o;
+}
+
+int	Form::getGradeSigned( void ) const
+{
+	return this->_gradeSigned;
+}
+
+int	Form::getGradeExecute( void ) const
+{
+	return this->_gradeExecute;
+}
+
+bool Form::getSigned( void ) const
+{
+	return this->_signed;
+}
+
+const std::string Form::getName( void ) const
+{
+	return this->_name;
 }
 
 const char* Form::GradeTooHighException::what() const throw()

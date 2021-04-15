@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:22:10 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/11 09:09:23 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 08:00:10 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 int		main(void)
 {
 	Character* me = new Character("me");
-
 	std::cout << *me;
 
 	Enemy* b = new RadScorpion();
@@ -40,8 +39,7 @@ int		main(void)
 	std::cout << *me;
 	me->attack(d);
 	std::cout << *me;
-	me->attack(d);
-	me->attack(d);
+	me->attack(c);
 	me->recoverAP();
 	me->recoverAP();
 	me->recoverAP();
@@ -50,8 +48,6 @@ int		main(void)
 	std::cout << *me;
 	me->attack(b);
 	me->equip(pr);
-	std::cout << *me;
-	me->attack(b);
 	std::cout << *me;
 	me->attack(b);
 	std::cout << *me;

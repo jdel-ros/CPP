@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 11:43:56 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/25 08:02:39 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 11:07:55 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int			main( void )
 			form1->beSigned(Kevin);
 			Kevin.executeForm(*form1);
 		}
+		std::cout << std::endl;
 		form2 = someRandomIntern.makeForm("presidential pardon", "Bender");
 		if (!form2)
 			throw std::invalid_argument("Form error");
@@ -46,6 +47,7 @@ int			main( void )
 			form2->beSigned(Kevin);
 			Kevin.executeForm(*form2);
 		}
+		std::cout << std::endl;
 		form3 = someRandomIntern.makeForm("shruberry creation", "Bender");
 		if (!form3)
 			throw std::invalid_argument("Form error");
@@ -55,6 +57,7 @@ int			main( void )
 			form3->beSigned(Kevin);
 			Kevin.executeForm(*form3);
 		}
+		std::cout << std::endl;
 		form4 = someRandomIntern.makeForm("gneeee", "Bender");
 		if (!form4)
 			throw std::invalid_argument("Form error");

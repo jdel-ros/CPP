@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 10:17:32 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 15:01:49 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:09:54 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ public:
 	Sorcerer( std::string name, std::string type );
 	~Sorcerer( void );
 	Sorcerer( Sorcerer const & src );
-	std::string getName( void ) const { return this->_name; };
-	std::string getTitle( void ) const { return this->_title; };
+	std::string getName( void ) const;
+	std::string getTitle( void ) const;
 
 	Sorcerer & operator=( Sorcerer const & rhs );
 	void polymorph( Victim const & victim ) const;

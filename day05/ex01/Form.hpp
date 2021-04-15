@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 13:19:49 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/17 14:31:53 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 10:23:38 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ public:
 	Form( Form const & src );
 
 	Form & operator=( Form const & rhs );
-	int	getGradeSigned( void ) const { return this->_gradeSigned; };
-	int	getGradeExecute( void ) const { return this->_gradeExecute; };
-	bool getSigned( void ) const { return this->_signed; };
-	const std::string getName( void ) const { return this->_name; };
+	int	getGradeSigned( void ) const;
+	int	getGradeExecute( void ) const;
+	bool getSigned( void ) const;
+	const std::string getName( void ) const;
 	void incrementGrade( void );
 	void decrementGrade( void );
 	void beSigned( Bureaucrat & src );

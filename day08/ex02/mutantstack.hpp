@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:15:07 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/30 14:42:39 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/15 09:14:20 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 
 	MutantStack( void ): std::stack<T>() { };
 	virtual ~MutantStack( void ) { };
-	MutantStack( MutantStack const & src ) { *this = src; };
+	MutantStack( MutantStack const & src ): _mstack(src._mstack) { };
 	MutantStack & operator=( MutantStack const & rhs ) {
 		this->_mstack = rhs._mstack;
 		return *this;

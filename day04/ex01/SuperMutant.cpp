@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:42:53 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/10 14:11:03 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 08:00:27 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ SuperMutant::~SuperMutant( void )
 
 void	SuperMutant::takeDamage( int d )
 {
-	if (d >= 0)
-		this->_hp -= d + 3;
-}
-
-void	SuperMutant::setHP( int i )
-{
-	_hp -= i;
+	if (d > 0)
+		this->_hp = (this->_hp - d) + 3;
+	if (this->_hp < 0)
+		this->_hp = 0;
 }

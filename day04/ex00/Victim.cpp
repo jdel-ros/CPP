@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:51:41 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/08 14:59:10 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 09:08:24 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ Victim &	Victim::operator=( Victim const & rhs )
 	this->_name = rhs._name;
 	std::cout << " Some random victim called " << this->_name << " just appeared!";
 	return *this;
+}
+
+std::string 	Victim::getName( void ) const
+{
+	return this->_name;
 }
 
 std::ostream &	operator<<( std::ostream & o, Victim const & i )

@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 10:47:32 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/17 12:40:17 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/12 10:53:37 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,15 @@ Bureaucrat::Bureaucrat( std::string name, int grade ): _name(name)
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout << "Bureaucrat " << this->_name << " died !" << std::endl;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & src )
+Bureaucrat::Bureaucrat( Bureaucrat const & src ): _name(src._name), _grade(src._grade)
 {
-	std::cout << "Constructor Copy have been called" << std::endl;
-	*this = src;
 }
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-	std::cout << "Assignement = have been called" << std::endl;
-	this->_grade = rhs._grade;
-	this->_name = rhs._name;
+	(void)rhs;
 	return *this;
 }
 
@@ -40,6 +35,16 @@ std::ostream &		operator<<( std::ostream & o, Bureaucrat const & i )
 {
 	o << i.getName() << ", bureaucrat grade " << i.getGrade()  << "." << std::endl;
 	return o;
+}
+
+int		Bureaucrat::getGrade( void ) const
+{
+	return this->_grade;
+}
+
+const std::string Bureaucrat::getName( void ) const
+{
+	return this->_name;
 }
 
 void	Bureaucrat::setGrade( int grade )
@@ -56,7 +61,7 @@ void	Bureaucrat::setGrade( int grade )
 		}
 		else
 		{
-			_grade = grade;
+			this->_grade = grade;
 			return ;
 		}
 	}
@@ -72,14 +77,33 @@ void	Bureaucrat::setGrade( int grade )
 
 void	Bureaucrat::incrementGrade( void )
 {
-	if (this->_grade > 1)
-		this->_grade -= 1;
+	try
+	{
+		if (this->_grade > 1)
+			this->_grade -= 1;
+		else
+			throw GradeTooHighException();
+	}
+	catch(const GradeTooHighException & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	if (this->_grade < 150)
-		this->_grade += 1;
+	try
+	{
+		if (this->_grade < 150)
+			this->_grade += 1;
+		else
+			throw GradeTooLowException();
+	}
+	catch(const GradeTooLowException & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

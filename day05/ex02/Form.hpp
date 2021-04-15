@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 13:19:49 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/23 10:31:32 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 12:05:48 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ public:
 	void decrementGrade( void );
 	void beSigned( Bureaucrat & src );
 	int TryExecute (Bureaucrat const & executor) const;
+	virtual void _execute (Bureaucrat const & executor) const = 0;
 
 private:
 
-	virtual void _execute (Bureaucrat const & executor) const = 0;
 	Form( void );
 	std::string _target;
 	const std::string _name;

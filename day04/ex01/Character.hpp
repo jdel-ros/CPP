@@ -6,7 +6,7 @@
 /*   By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 12:47:51 by jdel-ros          #+#    #+#             */
-/*   Updated: 2021/03/10 12:56:46 by jdel-ros         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 08:34:32 by jdel-ros         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ public:
 	void recoverAP( void );
 	void equip( AWeapon *weapon );
 	void attack( Enemy *enemy );
-	std::string	getTypeWeapon( void ) const { return _weapon->getName(); };
-	int	getAP( void ) const { return this->_actionPoints; };
-	std::string const & getName( void ) const { return this->_name; };
+	std::string	getTypeWeapon( void ) const;
+	int	getAP( void ) const;
+	std::string const & getName( void ) const;
 
 private:
 
